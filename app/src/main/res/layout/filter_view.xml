@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="4dp"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="6dp"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#2FFF0000"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sort by:"/>
+
+            <Spinner
+                android:id="@+id/sort_by"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog"
+                 />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/filter_high_rated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Highly Rated"
+                    android:textSize="10dp"
+                    android:background="@drawable/border"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:layout_margin="4dp"
+                    />
+                <Button
+                    android:id="@+id/filter_low_rated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Low Rated"
+                    android:textSize="10dp"
+                    android:background="@drawable/border"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:layout_margin="4dp"
+                    />
+
+            </LinearLayout>
+
+            </LinearLayout>
+        <View
+            android:layout_width="1dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price: "/>
+            <RadioGroup
+                android:id="@+id/filter_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/filter_radio_button_lth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Low to high"/>
+                <RadioButton
+                    android:id="@+id/filter_radio_button_htl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="High to Low"/>
+            </RadioGroup>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

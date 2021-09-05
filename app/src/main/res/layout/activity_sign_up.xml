@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".activities.SignUp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="top |center_horizontal"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="80dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:text="My Wardrobe"
+            android:textStyle="bold"
+            android:textSize="36sp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textColorHighlight="@color/colorPrimary"
+            android:fontFamily="@font/primary_font"/>
+        <ProgressBar
+            android:id="@+id/signup_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            >
+            <EditText
+                android:id="@+id/signup_fname"
+
+                android:layout_marginEnd="4dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="First Name"
+                android:background="@color/white"
+                android:padding="@dimen/editTextPadding"/>
+            <EditText
+                android:id="@+id/signup_lname"
+                android:layout_marginStart="4dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="Last Name"
+                android:background="@color/white"
+                android:padding="@dimen/editTextPadding"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/signup_email"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter email Address"
+            android:background="@color/white"
+            android:padding="@dimen/editTextPadding"/>
+
+        <EditText
+            android:id="@+id/signup_password"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:background="@color/white"
+            android:padding="@dimen/editTextPadding"/>
+        <EditText
+            android:id="@+id/signup_confirm_password"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:background="@color/white"
+            android:padding="@dimen/editTextPadding"/>
+        <TextView
+            android:id="@+id/signup_dob"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date of Birth: DD/MM/YYYY"
+            android:background="@color/white"
+            android:padding="@dimen/editTextPadding"/>
+        <Button
+            android:id="@+id/signup_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/black"
+            android:text="sign Up"
+            android:clickable="true"
+            android:elevation="8dp"
+            android:background="@null"
+            android:outlineProvider="bounds"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</ScrollView>

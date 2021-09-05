@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+         <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="SplashScreenBackground" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen_logo</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="myRating" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="android:state_selected">@color/yellow</item>
+
+    </style>
+
+    <style name="myEastwoodTextStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">24sp</item>
+        <item name="fontFamily">@font/eastwood</item>
+    </style>
+
+</resources>

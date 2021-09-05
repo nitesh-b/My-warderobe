@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "680977759918",
+    "firebase_url": "https://my-wardrobe-554cf.firebaseio.com",
+    "project_id": "my-wardrobe-554cf",
+    "storage_bucket": "my-wardrobe-554cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680977759918:android:077692af5a1731241eb73f",
+        "android_client_info": {
+          "package_name": "com.niteshb.mywardrobe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "680977759918-tiaus6kjkt8hdi21pio7ao6vnhod6108.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.niteshb.mywardrobe",
+            "certificate_hash": "755b608365f90a333db26ce1f8e2d62c4832b0a8"
+          }
+        },
+        {
+          "client_id": "680977759918-sa0lv15ut7ts5e727glj64ku3sctvlen.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCttx7im1L966vc2C1Yy_Vi-ywsO7_fVEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "680977759918-o66a9es4kev9v5njt3tqpstkrqhqn2a4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

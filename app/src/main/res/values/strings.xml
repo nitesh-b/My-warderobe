@@ -1,0 +1,120 @@
+<resources>
+    <string name="app_name">My Wardrobe</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be greater than 5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="add_image">Add Image</string>
+
+    <string-array name="categories">
+        <item>Clothing</item>
+        <item>Bags</item>
+        <item>Cosmetics</item>
+        <item>Shoes</item>
+        <item>Earrings</item>
+    </string-array>
+
+    <string-array name="Clothing">
+        <item>T-shirt</item>
+        <item>Tops </item>
+        <item>Shorts</item>
+        <item>Dresses</item>
+        <item>Skirts</item>
+        <item>Pants</item>
+        <item>Hoisery</item>
+        <item>Sweaters</item>
+        <item>Croset</item>
+        <item>Jacket</item>
+        <item>Miniskirt</item>
+        <item>Belt</item>
+        <item>Sportwear</item>
+        <item>Suits</item>
+        <item>Trousers</item>
+        <item>Undies</item>
+        <item>Ponchos</item>
+        <item>Others..</item>
+    </string-array>
+
+    <string-array name="Bags">
+        <item>T-Backpacks &amp; Waist Bags</item>
+        <item>Clutches and Handheld </item>
+        <item>Crossbody</item>
+        <item>Shoulder</item>
+        <item>Atheletic</item>
+        <item>Functional</item>
+        <item>Luggage and Trunks</item>
+        <item>Wallet and purse</item>
+        <item>Small Leather goods</item>
+        <item>Others..</item>
+    </string-array>
+    <string-array name="Cosmetics">
+        <item> Bath Preparations</item>
+        <item> Eye Makeup</item>
+         
+        <item>Fragrance</item>
+        <item> Hair</item>
+        <item>Hair Coloring</item>
+        <item>Makeup</item>
+        <item>Manicuring</item>
+        <item>Oral Hygiene Products</item>
+        <item>Personal Cleanliness</item>
+        <item>Shaving</item>
+        <item>Skin Care</item>
+        <item>Suntan</item>
+        <item>Others..</item>
+    </string-array>
+
+    <string-array name="Shoes">
+        <item>Casual</item>
+        <item>Dress Shoes</item>
+        <item>Boots</item>
+        <item>Sandals</item>
+        <item>Heels</item>
+        <item>Others..</item>
+    </string-array>
+
+    <string-array name="Earrings">
+        <item>Stud</item>
+        <item>Hoop</item>
+        <item>Threader</item>
+    </string-array>
+
+    <string-array name="color">
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>Pink</item>
+        <item>Purple</item>
+        <item>Baige</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="store_names">
+        <item>K-Mart</item>
+        <item>Target</item>
+        <item>Valley Girl</item>
+        <item>Dotti</item>
+        <item>David Jones</item>
+        <item>Big-W</item>
+        <item>JB Hifi</item>
+        <item>Myers</item>
+        <item>Coles</item>
+        <item>Others..</item>
+    </string-array>
+
+    <string-array name="sort_by">
+        <item>Newest First</item>
+        <item>Oldest First</item>
+    </string-array>
+    <string-array name="filter_by_rating">
+        <item>All</item>
+        <item>More than 3 </item>
+        <item>Les than 3 </item>
+    </string-array>
+</resources>

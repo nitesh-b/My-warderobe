@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SelectedItemActivity">
+
+  <include
+      layout="@layout/secondary_toolbar"
+      android:id="@+id/top_toolbar"/>
+    <LinearLayout
+        android:id="@+id/top_filter_layout"
+        android:layout_below="@id/top_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+       <include
+           layout="@layout/filter_view"/>
+    </LinearLayout>
+    <ScrollView
+        android:layout_below="@+id/top_filter_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:layout_marginTop="1dp"
+        android:orientation="vertical">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/category_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_margin="4dp"
+            android:orientation="horizontal"
+            android:background="@null"/>
+
+
+
+
+
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

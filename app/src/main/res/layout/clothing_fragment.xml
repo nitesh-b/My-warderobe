@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/clothing_view"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/red">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/clothing"
+        android:scaleType="centerCrop"/>
+
+    <LinearLayout
+        android:layout_margin = "20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:gravity="center"
+        android:elevation="4dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:shadowColor="@color/blue"
+        android:textColor="@color/white"
+        android:fontFamily="@font/ruster"
+        android:text="My wardrobe"
+        android:shadowRadius="1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:textColor="@color/white"
+        android:shadowColor="@color/blue"
+        android:fontFamily="@font/primary_font"
+        android:text="Clothing"
+        android:shadowRadius="2"
+        android:shadowDx="2"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:shadowColor="@color/blue"
+        android:textSize="18sp"
+        android:fontFamily="@font/ruster"
+        android:text="items"
+        android:shadowRadius="1"/>
+    </LinearLayout>
+</RelativeLayout>
