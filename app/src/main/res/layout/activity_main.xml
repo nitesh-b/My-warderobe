@@ -8,18 +8,26 @@
     <include layout="@layout/main_toolbar"
         android:id="@+id/toolbar"/>
 
-    <LinearLayout
-        android:layout_below="@id/toolbar"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="4"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-            <com.google.android.material.tabs.TabLayout
+
+            <com.niteshb.mywardrobe.utils.FlexibleGridView
+                android:id="@+id/flexible_grid_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:numColumns="2" />
+
+
+            <!--       <com.google.android.material.tabs.TabLayout
                 android:id="@+id/main_tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,28 +40,32 @@
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/main_view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="2dp"
-            android:background="@color/colorPrimary"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <TextView
+                android:layout_height="match_parent"/>-->
+
+            <LinearLayout
+                android:layout_below="@id/scrollView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Recently added items:"/>
+                android:layout_marginTop="2dp"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Recently added items:"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recent_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="4dp"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recent_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
+
+   <!--
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_item_floating_button"
         android:layout_width="wrap_content"
@@ -62,5 +74,5 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="12dp"
-        android:src="@drawable/ic_add_item"/>
+        android:src="@drawable/ic_add_item"/>-->
 </RelativeLayout>

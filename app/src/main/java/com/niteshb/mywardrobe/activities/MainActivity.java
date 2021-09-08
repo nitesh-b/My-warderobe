@@ -24,6 +24,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.niteshb.mywardrobe.R;
+import com.niteshb.mywardrobe.adapters.CategoriesAdapter;
 import com.niteshb.mywardrobe.adapters.FirestoreRecentRecyclerAdapter;
 import com.niteshb.mywardrobe.adapters.SectionPagerAdapter;
 import com.niteshb.mywardrobe.fragments.Bags;
@@ -31,12 +32,16 @@ import com.niteshb.mywardrobe.fragments.Clothing;
 import com.niteshb.mywardrobe.fragments.Cosmetics;
 import com.niteshb.mywardrobe.fragments.Earrings;
 import com.niteshb.mywardrobe.fragments.Shoes;
+import com.niteshb.mywardrobe.interfaces.ItemClickListener;
 import com.niteshb.mywardrobe.models.ItemModel;
+import com.niteshb.mywardrobe.utils.FlexibleGridView;
 import com.niteshb.mywardrobe.viewmodels.FirebaseItemViewModel;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, ItemClickListener {
     private static final String TAG = "MainActivity";
     private FirebaseAuth mAuth;
     private TabLayout mTabLayout;
@@ -48,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirestoreRecentRecyclerAdapter recentRecyclerAdapter;
     CollectionReference itemCollection;
     private FirebaseItemViewModel firebaseItemViewModel;
+    private FlexibleGridView gridView;
+    private CategoriesAdapter categoriesAdapter;
+    private List<String> categoriesList = Arrays.asList("Clothing", "Shoes", "Bags", "Hair", "Makeup", "Accessories", "Skin care", "My pairs");
 
     private MaterialToolbar materialToolbar;
 
@@ -70,22 +78,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setUpGridView();
+
         materialToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(materialToolbar);
         getSupportActionBar().setTitle("");
-        mAddButton = findViewById(R.id.add_item_floating_button);
-        mTabLayout = findViewById(R.id.main_tab_layout);
-        mViewPager = findViewById(R.id.main_view_pager);
-        setupViewPager(mViewPager);
-        mTabLayout.setupWithViewPager(mViewPager);
+//        mAddButton = findViewById(R.id.add_item_floating_button);
+//        mTabLayout = findViewById(R.id.main_tab_layout);
+//        mViewPager = findViewById(R.id.main_view_pager);
+//        setupViewPager(mViewPager);
+ //       mTabLayout.setupWithViewPager(mViewPager);
         mAuth = FirebaseAuth.getInstance();
-        mAddButton.setOnClickListener(this);
+ //       mAddButton.setOnClickListener(this);
         itemCollection = db.collection("My-Wardrobe").document("Users").collection(mAuth.getCurrentUser().getEmail());
         firebaseItemViewModel = new ViewModelProvider(this).get(FirebaseItemViewModel.class);
         firebaseItemViewModel.init();
         recentRecyclerView = findViewById(R.id.recent_recycler_view);
         recentRecyclerItemModelArrayList = (ArrayList<ItemModel>) firebaseItemViewModel.getItemLiveData().getValue();
         initializeRecentRecylerView();
+
+    }
+
+    private void setUpGridView() {
+        gridView = findViewById(R.id.flexible_grid_view);
+        categoriesAdapter = new CategoriesAdapter(categoriesList, this);
+        gridView.setExpanded(true);
+        gridView.setAdapter(categoriesAdapter);
 
     }
 
@@ -139,9 +158,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
                 startActivity(new Intent(MainActivity.this, Login.class));
                 break;*/
-            case R.id.add_item_floating_button:
-                startActivity(new Intent(MainActivity.this, AddItemActivity.class));
-                break;
+//            case R.id.add_item_floating_button:
+//                startActivity(new Intent(MainActivity.this, AddItemActivity.class));
+//                break;
         }
 
     }
@@ -152,6 +171,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         finish();
         startActivity(new Intent(MainActivity.this, Login.class));
         Toast.makeText(MainActivity.this, "Sign In to continue...", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onItemClick(Object item, int position) {
 
     }
 }
