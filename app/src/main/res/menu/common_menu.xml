@@ -6,6 +6,8 @@
         android:id="@+id/menu_search"
         android:icon="@drawable/ic_search"
         android:title="Search"
+        android:iconTint="@color/white"
+        
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_signout"
@@ -13,5 +15,6 @@
         android:icon="@drawable/ic_exit"
         android:title="Sign Out"
         android:visible="true"
+        android:iconTint="@color/white"
         app:showAsAction="always" />
 </menu>

@@ -5,21 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".activities.SelectedItemActivity">
 
-  <include
-      layout="@layout/secondary_toolbar"
-      android:id="@+id/top_toolbar"/>
-    <LinearLayout
-        android:id="@+id/top_filter_layout"
-        android:layout_below="@id/top_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone">
-       <include
-           layout="@layout/filter_view"/>
-    </LinearLayout>
-    <ScrollView
-        android:layout_below="@+id/top_filter_layout"
+    <include
+        android:id="@+id/top_toolbar"
+        layout="@layout/secondary_toolbar" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/top_toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
@@ -30,8 +20,6 @@
         android:padding="4dp"
         android:layout_marginTop="1dp"
         android:orientation="vertical">
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/category_recycler_view"
             android:layout_width="match_parent"
@@ -39,6 +27,7 @@
             android:layout_marginTop="4dp"
             android:layout_margin="4dp"
             android:orientation="horizontal"
+            android:numColumns="2"
             android:background="@null"/>
 
 
@@ -46,5 +35,19 @@
 
 
     </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_add_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/ic_add_item_icon"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="add item"
+
+        />
+
 </RelativeLayout>

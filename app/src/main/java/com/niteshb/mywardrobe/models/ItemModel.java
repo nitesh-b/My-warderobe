@@ -2,36 +2,82 @@ package com.niteshb.mywardrobe.models;
 
 import java.io.Serializable;
 
-public class ItemModel implements Serializable {
+import io.realm.Realm;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class ItemModel extends RealmObject implements Serializable {
+
+    @PrimaryKey
+    private long id;
+
+    private String userId;
+
+    private String categoryId;
     private String imageReference;
-    private String  category, type, color, brand, size, store, additionalInformation;
-    private int price;
-    private float rating;
-    private long itemNumber;
+    private String  category, subCategory, subType, description;
+    private boolean isDeleted, isFavourite, syncRequired;
+    private long dateAdded, dateModified;
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isSyncRequired() {
+        return syncRequired;
+    }
+
+    public void setSyncRequired(boolean syncRequired) {
+        this.syncRequired = syncRequired;
+    }
+
+    public long getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(long dateAdded) {
+        this.dateAdded = dateAdded;
+    }
+
+    public long getDateModified() {
+        return dateModified;
+    }
+
+    public void setDateModified(long dateModified) {
+        this.dateModified = dateModified;
+    }
 
     public ItemModel() {
     }
 
-    public ItemModel(String additionalInformation, String brand, String category, String color, String imageReference, long itemNumber, int price, float rating, String size, String store, String type){
-        this.imageReference = imageReference;
-        this.category = category;
-        this.type = type;
-        this.color = color;
-        this.brand = brand;
-        this.size = size;
-        this.store = store;
-        this.additionalInformation = additionalInformation;
-        this.price = price;
-        this.rating = rating;
-        this.itemNumber = itemNumber;
+
+
+    public long getId() {
+        return id;
     }
 
-    public long getItemNumber() {
-        return itemNumber;
-    }
-
-    public void setItemNumber(long itemNumber) {
-        this.itemNumber = itemNumber;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getImageReference() {
@@ -50,67 +96,35 @@ public class ItemModel implements Serializable {
         this.category = category;
     }
 
-    public String getType() {
-        return type;
+    public String getSubCategory() {
+        return subCategory;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setSubCategory(String subCategory) {
+        this.subCategory = subCategory;
     }
 
-    public String getColor() {
-        return color;
+    public String getSubType() {
+        return subType;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setSubType(String subType) {
+        this.subType = subType;
     }
 
-    public String getBrand() {
-        return brand;
+    public boolean isDeleted() {
+        return isDeleted;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
     }
 
-    public String getSize() {
-        return size;
+    public boolean isFavourite() {
+        return isFavourite;
     }
 
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public String getStore() {
-        return store;
-    }
-
-    public void setStore(String store) {
-        this.store = store;
-    }
-
-    public String getAdditionalInformation() {
-        return additionalInformation;
-    }
-
-    public void setAdditionalInformation(String additionalInformation) {
-        this.additionalInformation = additionalInformation;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public float getRating() {
-        return rating;
-    }
-
-    public void setRating(float rating) {
-        this.rating = rating;
+    public void setFavourite(boolean favourite) {
+        isFavourite = favourite;
     }
 }

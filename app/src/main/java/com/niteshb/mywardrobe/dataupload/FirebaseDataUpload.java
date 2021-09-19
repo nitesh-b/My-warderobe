@@ -54,7 +54,7 @@ private FirebaseDataUploadListener uploadListener;
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
 
         builder = new AlertDialog.Builder(mContext);
-        LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
+        LayoutInflater inflater = requireActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.uploading_dialog,null);
         builder.setView(view)
                 .setTitle("Uploading your info...");
@@ -100,7 +100,6 @@ private FirebaseDataUploadListener uploadListener;
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     model.setImageReference(uri.toString());  //get the download url
-                                    model.setItemNumber(Long.parseLong(currentTime));
                                     firestoreUpload(currentTime);
                                 }
                             });

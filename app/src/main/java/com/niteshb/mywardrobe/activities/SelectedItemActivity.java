@@ -1,49 +1,51 @@
 package com.niteshb.mywardrobe.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.android.flexbox.FlexWrap;
-import com.google.android.flexbox.FlexboxLayoutManager;
-import com.google.android.flexbox.JustifyContent;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.niteshb.mywardrobe.R;
-import com.niteshb.mywardrobe.adapters.SelectedIItemRecyclerAdapter;
+import com.niteshb.mywardrobe.adapters.ItemsRecyclerViewAdapter;
 import com.niteshb.mywardrobe.models.ItemModel;
+import com.niteshb.mywardrobe.models.realmModels.CategoryModel;
+import com.niteshb.mywardrobe.models.realmModels.SubCategoryModel;
+import com.niteshb.mywardrobe.realmHelper.RealmHelper;
+
+import java.util.ArrayList;
+
+import io.realm.RealmResults;
 
 public class SelectedItemActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private RecyclerView mRecyclerView;
+    private RecyclerView gridView;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private CollectionReference itemCollection;
-    private SelectedIItemRecyclerAdapter recentRecyclerAdapter;
+    private ItemsRecyclerViewAdapter recentRecyclerAdapter;
     private FirebaseUser user;
-    private String intentString;
+    private String categoryId;
     private TextView toolbarTextViewTitle;
     private ImageButton mBackButton;
+    private CategoryModel categoryModel;
+    private ArrayList<SubCategoryModel> subCategoryModels;
+    private RealmResults<ItemModel> itemModelRealmResults;
+    private FloatingActionButton addItemButton;
 
     private MaterialToolbar secondaryToolbar;
     @Override
@@ -51,13 +53,15 @@ public class SelectedItemActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_item);
 
-        intentString = getIntent().getStringExtra("ITEM_MODEL");
+        categoryId = getIntent().getStringExtra("CATEGORY_ID");
+        categoryModel = RealmHelper.getCategory(categoryId);
+        subCategoryModels = RealmHelper.getSubCategories(categoryId);
 
         secondaryToolbar = findViewById(R.id.top_toolbar);
         toolbarTextViewTitle = findViewById(R.id.toolbar_category);
         setSupportActionBar(secondaryToolbar);
 
-        toolbarTextViewTitle.setText(intentString);
+        toolbarTextViewTitle.setText(categoryModel.getCategory());
         mBackButton = findViewById(R.id.backButton);
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,9 +70,12 @@ public class SelectedItemActivity extends AppCompatActivity implements View.OnCl
             }
         });
 
+        addItemButton = findViewById(R.id.floating_action_add_item);
+        addItemButton.setOnClickListener(this);
+
         user = mAuth.getCurrentUser();
-        mRecyclerView = findViewById(R.id.category_recycler_view);
-        populateFilterView();
+        gridView = findViewById(R.id.category_recycler_view);
+        //populateFilterView();
         itemCollection = db.collection("My-Wardrobe").document("Users").collection(user.getEmail());
         initializeCategoryRecylerView();
     }
@@ -80,11 +87,11 @@ public class SelectedItemActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void initializeCategoryRecylerView() {
-        Query query =  itemCollection.orderBy("itemNumber", Query.Direction.DESCENDING).whereEqualTo("category", intentString);
-        FirestoreRecyclerOptions<ItemModel> option = new FirestoreRecyclerOptions.Builder<ItemModel>()
-                .setQuery(query, ItemModel.class)
-                .build();
-        handleQurey(query, option);
+        itemModelRealmResults = RealmHelper.getItems(user.getUid(), categoryId);
+        recentRecyclerAdapter = new ItemsRecyclerViewAdapter(itemModelRealmResults);
+        RecyclerView.LayoutManager layoutManager =new GridLayoutManager(this, 2);
+        gridView.setLayoutManager(layoutManager);
+        gridView.setAdapter(recentRecyclerAdapter);
     }
 
     @Override
@@ -96,118 +103,34 @@ public class SelectedItemActivity extends AppCompatActivity implements View.OnCl
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.secondary_menu_search:
+            case (R.id.secondary_menu_search):
                 Toast.makeText(this, "Search for item", Toast.LENGTH_SHORT).show();
                 break;
 
-            case R.id.secondary_menu_filter:
-                filterLayout.setVisibility(View.VISIBLE);
-                    Toast.makeText(this, "Filter Items", Toast.LENGTH_SHORT).show();
+            case (R.id.secondary_menu_filter):
+                    Toast.makeText(this, "OPen Filter View", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
-
-    }
-
-    /*Add components to filter area*/
-    private LinearLayout filterLayout;
-    private Spinner mSortBySpinner;
-
-    private RadioGroup mFilterRadioGroup;
-    private RadioButton mRadioButtonhtl, mRadioButtonlth;
-    private Button mHighRated, mLowRated;
-    private void populateFilterView() {
-        filterLayout = findViewById(R.id.top_filter_layout);
-        mSortBySpinner = findViewById(R.id.sort_by);
-        mHighRated = findViewById(R.id.filter_high_rated);
-        mHighRated.setOnClickListener( this);
-        mLowRated = findViewById(R.id.filter_low_rated);
-        mLowRated.setOnClickListener(this);
-
-        String[] stringArray = this.getResources().getStringArray(R.array.sort_by);
-        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<>(this, R.layout.spinner_items, stringArray);
-        mSortBySpinner.setAdapter(stringArrayAdapter);
-        mSortBySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                recentRecyclerAdapter.notifyDataSetChanged();
-                if (adapterView.getItemAtPosition(i).toString().equals("Newest First")){
-                    Query query =  itemCollection.orderBy("itemNumber", Query.Direction.DESCENDING).whereEqualTo("category", intentString);
-                  updateFirestoreRecyclerOption(query);
-                }else if(adapterView.getItemAtPosition(i).toString().equals("Oldest First")){
-                    Query query =  itemCollection.orderBy("itemNumber", Query.Direction.ASCENDING).whereEqualTo("category", intentString);
-                    updateFirestoreRecyclerOption(query);
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-        mFilterRadioGroup = findViewById(R.id.filter_radio_group);
-        mFilterRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                Query query;
-                switch (i){
-                    case R.id.filter_radio_button_htl:
-                        query = itemCollection.orderBy("price", Query.Direction.DESCENDING).whereEqualTo("category", intentString);
-                        updateFirestoreRecyclerOption(query);
-                        break;
-                    case R.id.filter_radio_button_lth:
-                        query = itemCollection.orderBy("price", Query.Direction.ASCENDING).whereEqualTo("category", intentString);
-                            updateFirestoreRecyclerOption(query);
-                            break;
-                }
-            }
-        });
-    }
-
-
-    /*Update Firestore recycler query Layout*/
-    private void updateFirestoreRecyclerOption(Query query) {
-        FirestoreRecyclerOptions<ItemModel> option = new FirestoreRecyclerOptions.Builder<ItemModel>()
-                .setQuery(query, ItemModel.class)
-                .build();
-        recentRecyclerAdapter.updateOptions(option);
-    }
-
-    /*Handle qurey*/
-    private void handleQurey(Query query, FirestoreRecyclerOptions<ItemModel> options){
-        recentRecyclerAdapter = new SelectedIItemRecyclerAdapter(options);
-        FlexboxLayoutManager layoutManager1 =new FlexboxLayoutManager(this);
-        layoutManager1.setJustifyContent ( JustifyContent.SPACE_EVENLY );
-        layoutManager1.setFlexWrap ( FlexWrap.WRAP );
-        mRecyclerView.setLayoutManager(layoutManager1);
-        mRecyclerView.setAdapter(recentRecyclerAdapter);
-
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        recentRecyclerAdapter.startListening();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        recentRecyclerAdapter.stopListening();
     }
 
     @Override
     public void onClick(View view) {
-        Query query;
         switch (view.getId()){
-            case R.id.filter_high_rated:
-                query = itemCollection.orderBy("rating", Query.Direction.DESCENDING).whereEqualTo("category", intentString);
-                updateFirestoreRecyclerOption(query);
-                break;
-            case R.id.filter_low_rated:
-                query = itemCollection.orderBy("rating", Query.Direction.ASCENDING).whereEqualTo("category", intentString);
-                updateFirestoreRecyclerOption(query);
+            case (R.id.floating_action_add_item):
+                Intent intent = new Intent(this, AddItemActivity.class);
+                intent.putExtra("CATEGORY_ID", categoryId);
+                startActivity(intent);
                 break;
         }
     }

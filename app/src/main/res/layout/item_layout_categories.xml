@@ -27,7 +27,7 @@
                 android:layout_height="match_parent"
                 android:text="Category"
                 android:padding="16dp"
-                android:textSize="24sp"
+                android:textSize="14sp"
                 android:gravity="center"
                 android:id="@+id/textView_category_title"/>
 

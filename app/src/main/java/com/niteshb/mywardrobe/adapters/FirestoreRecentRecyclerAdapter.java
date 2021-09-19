@@ -25,10 +25,6 @@ public class FirestoreRecentRecyclerAdapter extends FirestoreRecyclerAdapter<Ite
 
     @Override
     protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull ItemModel model) {
-        holder.colorTextView.setText(model.getColor());
-        holder.typeTextView.setText(model.getType());
-        holder.storeTextView.setText(model.getStore());
-        holder.myRating.setRating(model.getRating());
         Glide.with(holder.itemView.getContext())
                 .load(model.getImageReference())
                 .into(holder.imageView);

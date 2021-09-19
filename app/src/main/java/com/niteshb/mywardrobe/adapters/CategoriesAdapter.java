@@ -15,17 +15,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.niteshb.mywardrobe.R;
 import com.niteshb.mywardrobe.interfaces.ItemClickListener;
+import com.niteshb.mywardrobe.models.realmModels.CategoryModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriesAdapter extends BaseAdapter {
 
-    private List<String> dataList;
+    private ArrayList<CategoryModel> dataList;
     private ItemClickListener itemClickListener;
-//    private Context context;
 
-    public CategoriesAdapter( List<String> dataList, ItemClickListener itemClickListener) {
-//        this.context = context;
+    public CategoriesAdapter(ArrayList<CategoryModel> dataList, ItemClickListener itemClickListener) {
         this.dataList = dataList;
         this.itemClickListener = itemClickListener;
     }
@@ -57,7 +57,7 @@ public class CategoriesAdapter extends BaseAdapter {
         categoryTitle = convertView.findViewById(R.id.textView_category_title);
         cardView = convertView.findViewById(R.id.cardView);
 
-        categoryTitle.setText(dataList.get(position));
+        categoryTitle.setText(dataList.get(position).getCategory());
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

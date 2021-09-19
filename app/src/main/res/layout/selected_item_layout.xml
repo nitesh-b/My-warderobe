@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="160dp"
-    android:layout_height="250dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="2dp"
     app:cardElevation="2dp"
@@ -13,19 +13,21 @@
 
         <ImageView
             android:id="@+id/selected_item_image"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
+            android:layout_gravity="center"
             android:scaleType="centerCrop"
             android:src="@drawable/shoes"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_marginTop="4dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:padding="4dp">
+            android:background="@color/colorPrimary"
+            android:padding="8dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -33,62 +35,49 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/selected_item_layout_color"
-                    style="@style/myEastwoodTextStyle"
+                    android:id="@+id/text_view_category"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Color" />
-
-                <Space
-                    android:layout_width="1dp"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/selected_item_layout_type"
-                    style="@style/myEastwoodTextStyle"
-                    android:layout_toStartOf="@id/selected_item_layout_favourite"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/selected_item_layout_color"
-                    android:text="Type"
-                    android:maxLines="1"
-                    android:ellipsize="end"/>
+                    android:text="Category"
+                    android:textColor="@color/white" />
 
                 <ImageView
                     android:id="@+id/selected_item_layout_favourite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-
                     android:src="@drawable/heart" />
 
-                <RatingBar
-                    android:id="@+id/selected_item_layout_rating"
-                    style="@style/myRating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/selected_item_layout_color"
-                    android:numStars="5"
-                    android:rating="3" />
 
                 <TextView
-                    android:id="@+id/selected_item_layout_size"
+                    android:id="@+id/text_view_constant_arrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                   android:layout_centerVertical="true"
-                    android:layout_toEndOf="@id/selected_item_layout_rating"
-                    android:layout_marginStart="20dp"
-                    android:fontFamily="@font/primary_font"
-                    android:text="S"
-                    android:textSize="20sp" />
-
-
+                    android:layout_toRightOf="@id/text_view_category"
+                    android:text=" | "
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
                 <TextView
-                    android:id="@+id/selected_item_layout_price"
+                    android:id="@+id/text_view_sub_category"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/selected_item_layout_rating"
+                    android:layout_toRightOf="@id/text_view_constant_arrow"
                     android:text="$0.00"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/text_view_other_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:gravity="center_vertical"
+                    android:layout_below="@id/text_view_sub_category"
+                    android:text="Description Text"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/border_item_other_description"
                     android:textSize="14sp" />
 
 

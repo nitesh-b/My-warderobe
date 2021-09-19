@@ -34,12 +34,16 @@ import com.niteshb.mywardrobe.fragments.Earrings;
 import com.niteshb.mywardrobe.fragments.Shoes;
 import com.niteshb.mywardrobe.interfaces.ItemClickListener;
 import com.niteshb.mywardrobe.models.ItemModel;
+import com.niteshb.mywardrobe.models.realmModels.CategoryModel;
+import com.niteshb.mywardrobe.realmHelper.RealmHelper;
 import com.niteshb.mywardrobe.utils.FlexibleGridView;
 import com.niteshb.mywardrobe.viewmodels.FirebaseItemViewModel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ItemClickListener {
     private static final String TAG = "MainActivity";
@@ -55,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseItemViewModel firebaseItemViewModel;
     private FlexibleGridView gridView;
     private CategoriesAdapter categoriesAdapter;
-    private List<String> categoriesList = Arrays.asList("Clothing", "Shoes", "Bags", "Hair", "Makeup", "Accessories", "Skin care", "My pairs");
+    private ArrayList<CategoryModel> categoriesList;
 
     private MaterialToolbar materialToolbar;
 
@@ -84,11 +88,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         materialToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(materialToolbar);
         getSupportActionBar().setTitle("");
-//        mAddButton = findViewById(R.id.add_item_floating_button);
-//        mTabLayout = findViewById(R.id.main_tab_layout);
-//        mViewPager = findViewById(R.id.main_view_pager);
-//        setupViewPager(mViewPager);
- //       mTabLayout.setupWithViewPager(mViewPager);
         mAuth = FirebaseAuth.getInstance();
  //       mAddButton.setOnClickListener(this);
         itemCollection = db.collection("My-Wardrobe").document("Users").collection(mAuth.getCurrentUser().getEmail());
@@ -101,6 +100,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setUpGridView() {
+        categoriesList = RealmHelper.getCategories();
+
         gridView = findViewById(R.id.flexible_grid_view);
         categoriesAdapter = new CategoriesAdapter(categoriesList, this);
         gridView.setExpanded(true);
@@ -176,6 +177,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onItemClick(Object item, int position) {
-
+        if(item instanceof CategoryModel){
+            startSelectedItemActivity((CategoryModel)item);
+        }
     }
+
+    private void startSelectedItemActivity(CategoryModel item) {
+        Intent intent = new Intent(this, SelectedItemActivity.class);
+        intent.putExtra("CATEGORY_ID", item.getId());
+        startActivity(intent);
+    }
+
 }

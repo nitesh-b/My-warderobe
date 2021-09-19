@@ -31,12 +31,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
+
 import com.niteshb.mywardrobe.R;
 import com.niteshb.mywardrobe.dataupload.FirebaseDataUpload;
 import com.niteshb.mywardrobe.models.ItemModel;
@@ -64,7 +59,6 @@ public class AddItemActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseDataUpload upload;
 
     /*Firebase*/
-    private FirebaseDatabase fDb = FirebaseDatabase.getInstance();
 
     private String category, type, color, price, brand, size, store, additionalInformation, rating;
     private Uri imageReference;
@@ -146,25 +140,6 @@ public class AddItemActivity extends AppCompatActivity implements View.OnClickLi
 
         /*AutoComplete Brand Name*/
         mBrandName = findViewById(R.id.autoCompleteBrand_brand);
-        DatabaseReference dRef = fDb.getReference();
-        Query query = dRef.orderByChild("brandname");
-        final ArrayList<String> firebaseArrayList = new ArrayList<>();
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                firebaseArrayList.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    firebaseArrayList.add((String) snapshot.child("brandname").getValue());
-                    Log.d(TAG, "onDataChange: " + firebaseArrayList);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-        ArrayAdapter<String> brandAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, firebaseArrayList);
-        mBrandName.setAdapter(brandAdapter);
 
         /*Size selection*/
         rGroup = findViewById(R.id.radio_group);
@@ -266,24 +241,10 @@ public class AddItemActivity extends AppCompatActivity implements View.OnClickLi
 
             /*Progress Bar Show hide with translucent Scrollview*/
             case R.id.save_button:
-                category = selectCategory.getSelectedItem().toString();
-                type = selectType.getSelectedItem().toString();
-                color = selectColor.getSelectedItem().toString();
-                price = mPrice.getText().toString();
-                brand = mBrandName.getText().toString();
-                store = mStoreName.getText().toString();
                 additionalInformation = mAdditionalInformation.getText().toString();
                 rating = String.valueOf(mRatingBar.getRating());
                 ItemModel model = new ItemModel();
                 model.setCategory(category);
-                model.setType(type);
-                model.setColor(color);
-                model.setPrice(Integer.parseInt(price));
-                model.setBrand(brand);
-                model.setStore(store);
-                model.setAdditionalInformation(additionalInformation);
-                model.setRating(Float.parseFloat(rating));
-                model.setSize(size);
                 upload = new FirebaseDataUpload(this, model, imageReference);
                 upload.show(getSupportFragmentManager(), "upload");
                 break;

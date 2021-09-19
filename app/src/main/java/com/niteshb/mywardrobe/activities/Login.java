@@ -28,6 +28,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.niteshb.mywardrobe.datasource.CategoriesDataSource;
+import com.niteshb.mywardrobe.interfaces.SuccessListener;
+import com.niteshb.mywardrobe.utils.ProgressDialog;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 private Button signupButton, signInButton;
@@ -37,10 +40,13 @@ private  int RC_SIGN_IN = 100;
 private EditText mEmail, mPassword;
 private FirebaseAuth mAuth;
 private ProgressBar progressBar;
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        progressDialog = new ProgressDialog(this);
         signupButton = findViewById(R.id.signup_button);
         googleSignIn = findViewById(R.id.google_sign_in_button);
         googleSignIn.setOnClickListener(this);
@@ -156,13 +162,37 @@ progressBar.setVisibility(View.VISIBLE);
 
     private void updateUI(FirebaseUser user) {
         if (user!=null) {
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra("user", user);
-            startActivity(intent);
+            getCategories();
         }else{
-            Toast.makeText(this, "Plese Log In to continue...", Toast.LENGTH_SHORT).show();
+            failedToInitialize("Please login");
         }
 
+    }
+
+    private void getCategories(){
+        progressDialog.show();
+        CategoriesDataSource.setAllCategories(new SuccessListener() {
+            @Override
+            public void onSuccess() {
+                startMainActivity();
+                progressDialog.dismiss();
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                failedToInitialize(errorMessage);
+                progressDialog.dismiss();
+            }
+        });
+    }
+
+    private void startMainActivity() {
+        finish();
+        startActivity(new Intent(this, MainActivity.class));
+    }
+
+    private void failedToInitialize(String errorMessage) {
+        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
     }
 
 }

@@ -3,8 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/drawable/border.xml" value="0.2703125" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/drawable/border_item_other_description.xml" value="0.2703125" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/drawable/border_recent_item.xml" value="0.2703125" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/drawable/heart.xml" value="0.2703125" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/drawable/heart_filled.xml" value="0.2703125" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/drawable/ic_exit.xml" value="0.2703125" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/drawable/ic_filter.xml" value="0.2703125" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/drawable/ic_search.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/activity_selected_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/bag_fragment.xml" value="0.21944444444444444" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/clothing_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/cosmetics_fragment.xml" value="0.21944444444444444" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/dialog_progress_dialog.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/filter_view.xml" value="0.21944444444444444" />
         <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/item_layout_categories.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/main_toolbar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/recent_items_layout.xml" value="0.21944444444444444" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/secondary_toolbar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/selected_item_layout.xml" value="0.4" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/shoes_fragment.xml" value="0.21944444444444444" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/spinner_items.xml" value="0.21944444444444444" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/uploading_dialog.xml" value="0.21944444444444444" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/menu/common_menu.xml" value="0.17962962962962964" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/menu/secondary_common_menu.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
