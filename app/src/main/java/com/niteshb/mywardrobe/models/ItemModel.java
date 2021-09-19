@@ -10,9 +10,7 @@ public class ItemModel extends RealmObject implements Serializable {
 
     @PrimaryKey
     private long id;
-
     private String userId;
-
     private String categoryId;
     private String imageReference;
     private String  category, subCategory, subType, description;

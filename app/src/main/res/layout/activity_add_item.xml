@@ -6,28 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".activities.AddItemActivity">
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:contentDescription="@string/add_image"
-        android:padding="20dp"
-        android:src="@drawable/add_img"
-        android:visibility="gone"
-      />
-    <ImageView
-        android:id="@+id/clicked_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.3"
-        />
 <ScrollView
     android:id="@+id/add_item_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_below="@id/imageButton"
+    android:layout_above="@+id/linear_layout_bottom"
     android:layout_marginTop="2dp"
     android:background="@null"
     >
@@ -39,195 +22,25 @@
         android:layout_marginEnd="4dp"
         android:orientation="vertical"
 
-
         >
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-            android:padding="15dp"
-
-            >
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:textSize="14sp"
-                android:layout_gravity="center_vertical"
-                android:text="Category*" />
-
-            <Spinner
-                android:id="@+id/spinner_category"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:contextClickable="true"
-                android:dropDownWidth="match_parent"
-                android:spinnerMode="dialog"
-                />
-
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorPrimaryDark"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            android:layout_gravity="center_vertical"
-            android:padding="15dp"
-            >
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="Type*" />
-            <Spinner
-                android:id="@+id/spinner_type"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:contextClickable="true"
-                android:dropDownWidth="match_parent"
-                android:spinnerMode="dialog"
-                />
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorPrimaryDark"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            android:layout_gravity="center_vertical"
-            android:padding="15dp"
-            >
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="Color*" />
-
-            <Spinner
-                android:id="@+id/spinner_color"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:contextClickable="true"
-                android:dropDownWidth="match_parent"
-                android:spinnerMode="dialog"
-                />
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorPrimaryDark"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            android:layout_gravity="center_vertical"
-            android:padding="15dp"
-            >
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.4"
-                android:text="Price*" />
-
-            <TextView
-                android:id="@+id/textview_sign"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:text="$ "/>
-            <EditText
-                android:id="@+id/edittext_price"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:layout_weight="0.5"
-                android:maxLines="1"
-                android:inputType="text"
-                android:imeOptions="actionNext"
-                android:text="0"
-                android:hint="0"/>
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/clicked_image"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/add_img"
+                android:scaleType="center"
+                android:background="@drawable/border_item_other_description"
+                app:tint="@color/white" />
 
 
-            <SeekBar
-                android:id="@+id/seekbar_price"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:layout_height="wrap_content"
-                android:contextClickable="true"
-                android:max="5000"
-                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorPrimaryDark"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            android:layout_gravity="center_vertical"
-            android:padding="15dp"
-            >
-
-            <TextView
-                android:id="@+id/brand"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="Brand" />
-
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteBrand_brand"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:layout_weight="1"
-                android:maxLines="1"
-                android:inputType="text"
-                android:imeOptions="actionNext"
-                android:completionThreshold="1"
-                android:hint="Type Brand Name"
-                android:completionHint="Type Brand Name"/>
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorPrimaryDark"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
@@ -307,35 +120,7 @@
             android:background="@color/colorPrimaryDark"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            android:layout_gravity="center_vertical"
-            android:padding="15dp"
-            >
 
-            <TextView
-                android:id="@+id/store"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="Store" />
-
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteBrand_store"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:layout_weight="1"
-                android:maxLines="1"
-                android:inputType="text"
-                android:imeOptions="actionNext"
-                android:completionThreshold="1"
-                android:hint="Select Store"
-                android:completionHint="Select Store"/>
-        </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -365,67 +150,34 @@
             android:background="@color/colorPrimaryDark"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            android:layout_gravity="center_vertical"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp">
-
-            <TextView
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:id="@+id/rating"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="Rating" />
-
-            <RatingBar
-                android:id="@+id/item_rating"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:numStars="5"
-
-                android:stepSize="0.5"
-                android:rating="3.5"
-                android:progressTint="@color/green"
-                />
-
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorPrimaryDark"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-
-            >
-
-            <Button
-                android:id="@+id/save_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="8dp"
-                android:text="Save"
-                android:background="@drawable/border"/>
-            <Button
-                android:id="@+id/cancel_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="8dp"
-                android:text="Cancel"
-                android:background="@drawable/border"/>
-        </LinearLayout>
     </LinearLayout>
 </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical">
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:text="Save"
+            android:textColor="@color/white"
+            android:background="@drawable/bottom_border_primary"/>
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            android:background="@drawable/bottom_border_secondary"/>
+    </LinearLayout>
 </RelativeLayout>

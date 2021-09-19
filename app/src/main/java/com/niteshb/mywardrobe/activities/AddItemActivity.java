@@ -70,10 +70,6 @@ public class AddItemActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_add_item);
         mAuth = FirebaseAuth.getInstance();
         selectCategory = findViewById(R.id.spinner_category);
-        selectType = findViewById(R.id.spinner_type);
-        selectColor = findViewById(R.id.spinner_color);
-        mPrice = findViewById(R.id.edittext_price);
-        mSeek = findViewById(R.id.seekbar_price);
         mScrollView = findViewById(R.id.add_item_linear_layout);
         backgroundImage = findViewById(R.id.clicked_image);
         /*Select Image First*/
