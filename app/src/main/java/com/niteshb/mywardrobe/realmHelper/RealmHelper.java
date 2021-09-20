@@ -91,4 +91,17 @@ public class RealmHelper {
         }
         return categoryModels;
     }
+
+
+    public  static RealmResults<ItemModel> getCategoryItem(String categoryId){
+        try(Realm realm = Realm.getDefaultInstance()){
+            return  realm.where(ItemModel.class).equalTo("categoryId", categoryId).findAll();
+        }
+    }
+
+    public static RealmResults<ItemModel> getSubCategoryItem(String subCategoryId) {
+        try(Realm realm = Realm.getDefaultInstance()){
+            return  realm.where(ItemModel.class).equalTo("subCategoryId", subCategoryId).findAll();
+        }
+    }
 }

@@ -47,8 +47,6 @@ public class AddItemActivity extends AppCompatActivity implements View.OnClickLi
     private static final int CAMERA_PIC_REQUEST = 100;
     private Spinner selectSubType;
     private EditText mAdditionalInformation;
-    private AutoCompleteTextView mBrandName, mStoreName;
-    private RatingBar mRatingBar;
     private Button saveBtn, cancelBtn;
     private String currentPhotoPath;
     private RadioGroup rGroup;
@@ -83,7 +81,7 @@ public class AddItemActivity extends AppCompatActivity implements View.OnClickLi
         requestCameraPermission();
         subCategoryModel = RealmHelper.getSubCategory(subCategoryId);
         subTypes = RealmHelper.getSubTypes(subCategoryId);
-        if(subCategoryModel!=null){
+        if(subCategoryModel != null){
             itemModel = new ItemModel(mAuth.getUid(), subCategoryModel.getCategoryId(), subCategoryModel.getId(), false);
             itemModel.setSubCategory(subCategoryModel.getSubCategory());
         }else{

@@ -14,8 +14,11 @@
         <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/drawable/ic_filter.xml" value="0.2703125" />
         <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/drawable/ic_search.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/activity_add_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/activity_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/activity_selected_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/activity_splash_screen.xml" value="0.14583333333333334" />
+        <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/activity_sub_category.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/bag_fragment.xml" value="0.21944444444444444" />
         <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/clothing_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/swift/Desktop/MyWardrobe/app/src/main/res/layout/cosmetics_fragment.xml" value="0.21944444444444444" />

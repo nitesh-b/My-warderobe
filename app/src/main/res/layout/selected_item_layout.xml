@@ -10,20 +10,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/selected_item_image"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/shoes"/>
 
-        <ImageView
-            android:id="@+id/selected_item_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:layout_gravity="center"
-            android:scaleType="centerCrop"
-            android:src="@drawable/shoes"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+
             android:layout_weight="1"
             android:orientation="vertical"
             android:background="@color/colorPrimary"
@@ -70,14 +78,13 @@
                     android:id="@+id/text_view_other_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:lines="2"
-                    android:maxLines="2"
-                    android:gravity="center_vertical"
                     android:layout_below="@id/text_view_sub_category"
-                    android:text="Description Text"
                     android:layout_marginTop="8dp"
-                    android:textColor="@color/white"
                     android:background="@drawable/border_item_other_description"
+                    android:gravity="center_vertical"
+                    android:maxLines="2"
+                    android:text="Description Text"
+                    android:textColor="@color/white"
                     android:textSize="14sp" />
 
 

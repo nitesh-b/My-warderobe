@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void startSelectedItemActivity(CategoryModel item) {
-        Intent intent = new Intent(this, SelectedItemActivity.class);
+        Intent intent = new Intent(this, SubCategoryActivity.class);
         intent.putExtra("CATEGORY_ID", item.getId());
         startActivity(intent);
     }

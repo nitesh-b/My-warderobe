@@ -6,14 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.Switch;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.niteshb.mywardrobe.R;
-import com.niteshb.mywardrobe.activities.SelectedItemActivity;
+import com.niteshb.mywardrobe.activities.SubCategoryActivity;
 
 public class Clothing extends Fragment implements View.OnClickListener {
 
@@ -37,7 +36,7 @@ public class Clothing extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.clothing_view:
-                Intent intent = new Intent(getActivity(), SelectedItemActivity.class);
+                Intent intent = new Intent(getActivity(), SubCategoryActivity.class);
                 intent.putExtra("ITEM_MODEL", "Clothing");
                 startActivity(intent);
                 break;

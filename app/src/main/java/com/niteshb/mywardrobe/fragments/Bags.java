@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.niteshb.mywardrobe.R;
-import com.niteshb.mywardrobe.activities.SelectedItemActivity;
+import com.niteshb.mywardrobe.activities.SubCategoryActivity;
 
 public class Bags extends Fragment {
 
@@ -22,7 +22,7 @@ public class Bags extends Fragment {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SelectedItemActivity.class);
+                Intent intent = new Intent(getActivity(), SubCategoryActivity.class);
                 intent.putExtra("ITEM_MODEL", "Bags");
                 startActivity(intent);
             }

@@ -11,9 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.niteshb.mywardrobe.R;
-import com.niteshb.mywardrobe.activities.SelectedItemActivity;
-
-import java.io.FileReader;
+import com.niteshb.mywardrobe.activities.SubCategoryActivity;
 
 public class Earrings extends Fragment {
     @Nullable
@@ -23,7 +21,7 @@ public class Earrings extends Fragment {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SelectedItemActivity.class);
+                Intent intent = new Intent(getActivity(), SubCategoryActivity.class);
                 intent.putExtra("ITEM_MODEL", "Jwelleries");
                 startActivity(intent);
             }

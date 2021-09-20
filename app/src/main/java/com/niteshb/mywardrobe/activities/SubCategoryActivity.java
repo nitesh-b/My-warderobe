@@ -34,7 +34,7 @@ import java.util.ArrayList;
 
 import io.realm.RealmResults;
 
-public class SelectedItemActivity extends AppCompatActivity implements View.OnClickListener, ItemClickListener {
+public class SubCategoryActivity extends AppCompatActivity implements View.OnClickListener, ItemClickListener {
 
     private RecyclerView recentRecyclerView;
     private FlexibleGridView subCategoryGridView;
@@ -50,14 +50,14 @@ public class SelectedItemActivity extends AppCompatActivity implements View.OnCl
     private CategoryModel categoryModel;
     private ArrayList<SubCategoryModel> subCategoryModels;
     private RealmResults<ItemModel> itemModelRealmResults;
-    private FloatingActionButton addItemButton;
     private ItemClickListener itemClickListener;
+
 
     private MaterialToolbar secondaryToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_selected_item);
+        setContentView(R.layout.activity_sub_category);
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         itemClickListener = this;
@@ -81,8 +81,6 @@ public class SelectedItemActivity extends AppCompatActivity implements View.OnCl
         subCategoryGridView = findViewById(R.id.gridView);
         initSubCategoryGridView();
 
-        addItemButton = findViewById(R.id.floating_action_add_item);
-        addItemButton.setOnClickListener(this);
         user = mAuth.getCurrentUser();
         recentRecyclerView = findViewById(R.id.category_recycler_view);
         initializeCategoryRecylerView();
@@ -102,7 +100,7 @@ public class SelectedItemActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void initializeCategoryRecylerView() {
-        itemModelRealmResults = RealmHelper.getItems(user.getUid(), categoryId);
+        itemModelRealmResults = RealmHelper.getCategoryItem(categoryId);
         recentRecyclerAdapter = new ItemsRecyclerViewAdapter(itemModelRealmResults);
         RecyclerView.LayoutManager layoutManager =new GridLayoutManager(this, 2);
         recentRecyclerView.setLayoutManager(layoutManager);
@@ -141,19 +139,13 @@ public class SelectedItemActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case (R.id.floating_action_add_item):
-                Intent intent = new Intent(this, AddItemActivity.class);
-                intent.putExtra("CATEGORY_ID", categoryId);
-                startActivity(intent);
-                break;
-        }
+
     }
 
     @Override
     public void onItemClick(Object item, int position) {
         if(item instanceof SubCategoryModel){
-            Intent intent = new Intent(SelectedItemActivity.this, AddItemActivity.class);
+            Intent intent = new Intent(SubCategoryActivity.this, ItemActivity.class);
             intent.putExtra("SUB_CATEGORY_ID", ((SubCategoryModel) item).getId());
             startActivity(intent);
         }

@@ -46,10 +46,11 @@ public class ItemsRecyclerViewAdapter extends RealmRecyclerViewAdapter<ItemModel
                 holder.favouriteImage.setImageResource(R.drawable.heart);
             }
 
-            StorageReference reference = FirebaseStorage.getInstance().getReference(model.getImageReference());
+           // StorageReference reference = FirebaseStorage.getInstance().getReference(model.getImageReference());
             try{
                 Glide.with(holder.itemImage.getContext())
-                        .load(reference)
+                      .load(model.getImageReference())
+                      //  .load(reference)
                         .into(holder.itemImage);
 
             }catch (Exception ex){
