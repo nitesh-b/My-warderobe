@@ -22,22 +22,27 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.niteshb.mywardrobe.R;
 import com.niteshb.mywardrobe.adapters.ItemsRecyclerViewAdapter;
+import com.niteshb.mywardrobe.adapters.SubCategoriesAdapter;
+import com.niteshb.mywardrobe.interfaces.ItemClickListener;
 import com.niteshb.mywardrobe.models.ItemModel;
 import com.niteshb.mywardrobe.models.realmModels.CategoryModel;
 import com.niteshb.mywardrobe.models.realmModels.SubCategoryModel;
 import com.niteshb.mywardrobe.realmHelper.RealmHelper;
+import com.niteshb.mywardrobe.utils.FlexibleGridView;
 
 import java.util.ArrayList;
 
 import io.realm.RealmResults;
 
-public class SelectedItemActivity extends AppCompatActivity implements View.OnClickListener {
+public class SelectedItemActivity extends AppCompatActivity implements View.OnClickListener, ItemClickListener {
 
-    private RecyclerView gridView;
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private RecyclerView recentRecyclerView;
+    private FlexibleGridView subCategoryGridView;
+    private FirebaseFirestore db;
+    private FirebaseAuth mAuth;
     private CollectionReference itemCollection;
     private ItemsRecyclerViewAdapter recentRecyclerAdapter;
+    private SubCategoriesAdapter subCategoriesAdapter;
     private FirebaseUser user;
     private String categoryId;
     private TextView toolbarTextViewTitle;
@@ -46,13 +51,16 @@ public class SelectedItemActivity extends AppCompatActivity implements View.OnCl
     private ArrayList<SubCategoryModel> subCategoryModels;
     private RealmResults<ItemModel> itemModelRealmResults;
     private FloatingActionButton addItemButton;
+    private ItemClickListener itemClickListener;
 
     private MaterialToolbar secondaryToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_item);
-
+        db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        itemClickListener = this;
         categoryId = getIntent().getStringExtra("CATEGORY_ID");
         categoryModel = RealmHelper.getCategory(categoryId);
         subCategoryModels = RealmHelper.getSubCategories(categoryId);
@@ -70,14 +78,21 @@ public class SelectedItemActivity extends AppCompatActivity implements View.OnCl
             }
         });
 
+        subCategoryGridView = findViewById(R.id.gridView);
+        initSubCategoryGridView();
+
         addItemButton = findViewById(R.id.floating_action_add_item);
         addItemButton.setOnClickListener(this);
-
         user = mAuth.getCurrentUser();
-        gridView = findViewById(R.id.category_recycler_view);
-        //populateFilterView();
-        itemCollection = db.collection("My-Wardrobe").document("Users").collection(user.getEmail());
+        recentRecyclerView = findViewById(R.id.category_recycler_view);
         initializeCategoryRecylerView();
+    }
+
+    private void initSubCategoryGridView() {
+
+        subCategoriesAdapter = new SubCategoriesAdapter(subCategoryModels, itemClickListener);
+        subCategoryGridView.setExpanded(true);
+        subCategoryGridView.setAdapter(subCategoriesAdapter);
     }
 
     @Override
@@ -90,8 +105,8 @@ public class SelectedItemActivity extends AppCompatActivity implements View.OnCl
         itemModelRealmResults = RealmHelper.getItems(user.getUid(), categoryId);
         recentRecyclerAdapter = new ItemsRecyclerViewAdapter(itemModelRealmResults);
         RecyclerView.LayoutManager layoutManager =new GridLayoutManager(this, 2);
-        gridView.setLayoutManager(layoutManager);
-        gridView.setAdapter(recentRecyclerAdapter);
+        recentRecyclerView.setLayoutManager(layoutManager);
+        recentRecyclerView.setAdapter(recentRecyclerAdapter);
     }
 
     @Override
@@ -132,6 +147,15 @@ public class SelectedItemActivity extends AppCompatActivity implements View.OnCl
                 intent.putExtra("CATEGORY_ID", categoryId);
                 startActivity(intent);
                 break;
+        }
+    }
+
+    @Override
+    public void onItemClick(Object item, int position) {
+        if(item instanceof SubCategoryModel){
+            Intent intent = new Intent(SelectedItemActivity.this, AddItemActivity.class);
+            intent.putExtra("SUB_CATEGORY_ID", ((SubCategoryModel) item).getId());
+            startActivity(intent);
         }
     }
 }

@@ -47,6 +47,16 @@ public class RealmHelper {
         }
     }
 
+    public static SubCategoryModel getSubCategory(String subCategoryId) {
+        try(Realm realm = Realm.getDefaultInstance()){
+            SubCategoryModel result =  realm.where(SubCategoryModel.class).equalTo("id", subCategoryId).findFirst();
+            if(result!= null){
+                return realm.copyFromRealm(result);
+            }
+            return  null;
+        }
+    }
+
     public static ArrayList<SubCategoryModel> getSubCategories(String categoryId) {
         ArrayList<SubCategoryModel> subCategoryModels = new ArrayList<>();
         try(Realm realm = Realm.getDefaultInstance()){
@@ -67,5 +77,18 @@ public class RealmHelper {
                     .findAll();
 
         }
+    }
+
+    //Get sub types from sub category id
+
+    public static ArrayList<String> getSubTypes(String id) {
+        ArrayList<String> categoryModels = new ArrayList<>();
+        try(Realm realm = Realm.getDefaultInstance()){
+            SubCategoryModel results =  realm.where(SubCategoryModel.class).equalTo("id", id).findFirst();
+            if(results!= null){
+                categoryModels.addAll(results.getSubTypes());
+            }
+        }
+        return categoryModels;
     }
 }

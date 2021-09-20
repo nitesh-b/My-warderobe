@@ -9,13 +9,30 @@ import io.realm.annotations.PrimaryKey;
 public class ItemModel extends RealmObject implements Serializable {
 
     @PrimaryKey
-    private long id;
+    private String id;
     private String userId;
-    private String categoryId;
+    private String categoryId, subCategoryId;
     private String imageReference;
     private String  category, subCategory, subType, description;
     private boolean isDeleted, isFavourite, syncRequired;
     private long dateAdded, dateModified;
+    private String size;
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getSubCategoryId() {
+        return subCategoryId;
+    }
+
+    public void setSubCategoryId(String subCategoryId) {
+        this.subCategoryId = subCategoryId;
+    }
 
     public String getCategoryId() {
         return categoryId;
@@ -68,13 +85,18 @@ public class ItemModel extends RealmObject implements Serializable {
     public ItemModel() {
     }
 
+    public ItemModel(String userId, String categoryId, String subCategoryId, boolean isDeleted) {
+        this.userId = userId;
+        this.categoryId = categoryId;
+        this.subCategoryId = subCategoryId;
+        this.isDeleted = isDeleted;
+    }
 
-
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

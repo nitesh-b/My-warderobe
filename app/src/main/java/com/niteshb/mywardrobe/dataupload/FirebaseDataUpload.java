@@ -32,6 +32,7 @@ import com.niteshb.mywardrobe.R;
 import com.niteshb.mywardrobe.models.ItemModel;
 
 import java.util.Objects;
+import java.util.UUID;
 
 import static android.content.ContentValues.TAG;
 
@@ -79,6 +80,7 @@ private FirebaseDataUploadListener uploadListener;
 
         Log.d(TAG, "onCreate: User email: "+ mAuth.getCurrentUser().getEmail());
         final String currentTime = String.valueOf(System.currentTimeMillis());
+        final long currentDateTime = System.currentTimeMillis();
        if(capturedImageUri != null){
             final StorageReference fileReference = storageReference.child(mAuth.getCurrentUser().getEmail()+ "/" + currentTime +"."+"jpg");
 
@@ -87,20 +89,15 @@ private FirebaseDataUploadListener uploadListener;
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                            /*Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    mProgressBar.setProgress(0);
-
-                                }
-                            }, 4000);*/
                             StorageMetadata metadata = taskSnapshot.getMetadata();
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     model.setImageReference(uri.toString());  //get the download url
-                                    firestoreUpload(currentTime);
+                                    model.setDateAdded(currentDateTime);
+                                    model.setDateModified(currentDateTime);
+                                    model.setId(UUID.randomUUID().toString());
+                                    firestoreUpload(model);
                                 }
                             });
 
@@ -134,11 +131,11 @@ private FirebaseDataUploadListener uploadListener;
         return map.getExtensionFromMimeType(resolver.getType(uri));
     }
 
-    private void firestoreUpload(String currentTime) {
-        db.collection("My-Wardrobe")
-                .document("Users")
-                .collection(Objects.requireNonNull(mAuth.getCurrentUser().getEmail()))
-                .document(currentTime)
+    private void firestoreUpload(ItemModel model) {
+        db.collection("UserData")
+                .document(mAuth.getUid())
+                .collection("items")
+                .document(model.getId())
                 .set(model)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

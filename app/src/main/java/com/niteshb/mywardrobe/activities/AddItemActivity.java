@@ -35,6 +35,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.niteshb.mywardrobe.R;
 import com.niteshb.mywardrobe.dataupload.FirebaseDataUpload;
 import com.niteshb.mywardrobe.models.ItemModel;
+import com.niteshb.mywardrobe.models.realmModels.SubCategoryModel;
+import com.niteshb.mywardrobe.realmHelper.RealmHelper;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,10 +45,8 @@ import java.util.ArrayList;
 public class AddItemActivity extends AppCompatActivity implements View.OnClickListener, FirebaseDataUpload.FirebaseDataUploadListener {
     private static final String TAG = "Add Item Tag";
     private static final int CAMERA_PIC_REQUEST = 100;
-    private ImageButton selectImage;
-    private Spinner selectCategory, selectType, selectColor;
-    private EditText mPrice, mAdditionalInformation;
-    private SeekBar mSeek;
+    private Spinner selectSubType;
+    private EditText mAdditionalInformation;
     private AutoCompleteTextView mBrandName, mStoreName;
     private RatingBar mRatingBar;
     private Button saveBtn, cancelBtn;
@@ -54,13 +54,17 @@ public class AddItemActivity extends AppCompatActivity implements View.OnClickLi
     private RadioGroup rGroup;
     private RadioButton b1, b2, b3, b4, b5;
     private FirebaseAuth mAuth;
-    private LinearLayout mScrollView;
-    private ImageView backgroundImage;
+    private LinearLayout subTypeHolder;
+    private ImageView itemImage;
     private FirebaseDataUpload upload;
+    private ArrayList<String> subTypes;
+    private SubCategoryModel subCategoryModel;
+    private String subCategoryId;
+    private ItemModel itemModel;
+    private String size;
 
     /*Firebase*/
 
-    private String category, type, color, price, brand, size, store, additionalInformation, rating;
     private Uri imageReference;
 
 
@@ -69,29 +73,42 @@ public class AddItemActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
         mAuth = FirebaseAuth.getInstance();
-        selectCategory = findViewById(R.id.spinner_category);
-        mScrollView = findViewById(R.id.add_item_linear_layout);
-        backgroundImage = findViewById(R.id.clicked_image);
+        subCategoryId = getIntent().getStringExtra("SUB_CATEGORY_ID");
+        selectSubType = findViewById(R.id.spinner_subTypes);
+        subTypeHolder = findViewById(R.id.linearLayout_subType_holder);
+        itemImage = findViewById(R.id.clicked_image);
+        itemImage.setOnClickListener(this);
         /*Select Image First*/
 
         requestCameraPermission();
-        selectImage = findViewById(R.id.imageButton);
-        selectImage.setVisibility(View.VISIBLE);
-        selectImage.setOnClickListener(this);
+        subCategoryModel = RealmHelper.getSubCategory(subCategoryId);
+        subTypes = RealmHelper.getSubTypes(subCategoryId);
+        if(subCategoryModel!=null){
+            itemModel = new ItemModel(mAuth.getUid(), subCategoryModel.getCategoryId(), subCategoryModel.getId(), false);
+            itemModel.setSubCategory(subCategoryModel.getSubCategory());
+        }else{
+
+            finish();
+            return;
+        }
+
 
         /*Select Category and Sub-category*/
-        String[] categories = this.getResources().getStringArray(R.array.categories);
-        ArrayAdapter<String> categoryArray = new ArrayAdapter<>(AddItemActivity.this, android.R.layout.simple_spinner_item, categories);
-        selectCategory.setAdapter(categoryArray);
-        selectCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        if(subTypes.size()>0){
+            String[] subTypesArray = subTypes.toArray(new String[subTypes.size()]);
+            ArrayAdapter<String> categoryArray = new ArrayAdapter<>(AddItemActivity.this, android.R.layout.simple_spinner_item, subTypesArray);
+            selectSubType.setAdapter(categoryArray);
+        }else{
+            subTypeHolder.setVisibility(View.GONE);
+        }
+
+        selectSubType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(AddItemActivity.this, "itemClicked", Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "onItemSelected: Selected Item: " + adapterView.getItemAtPosition(i));
-                category = adapterView.getItemAtPosition(i).toString();
-                String[] typeSelection = getResources().getStringArray(getStringResourceById(category));
-                ArrayAdapter<String> typeArray = new ArrayAdapter<>(AddItemActivity.this, android.R.layout.simple_spinner_item, typeSelection);
-                selectType.setAdapter(typeArray);
+                String subType = adapterView.getItemAtPosition(i).toString();
+                itemModel.setSubType(subType);
             }
 
             @Override
@@ -99,43 +116,6 @@ public class AddItemActivity extends AppCompatActivity implements View.OnClickLi
                 Toast.makeText(AddItemActivity.this, "Nothing selected", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-        /*Select the color of the item*/
-        String[] itemColor = getResources().getStringArray(R.array.color);
-        ArrayAdapter<String> colorAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, itemColor);
-        selectColor.setAdapter(colorAdapter);
-
-
-        /*Set Price in SeekBar*/
-        price = mPrice.getText().toString();
-        mSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                mPrice.setText(String.format("%d", i));
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
-        mPrice.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                mSeek.setProgress(Integer.parseInt(mPrice.getText().toString()));
-
-
-            }
-        });
-
-
-        /*AutoComplete Brand Name*/
-        mBrandName = findViewById(R.id.autoCompleteBrand_brand);
 
         /*Size selection*/
         rGroup = findViewById(R.id.radio_group);
@@ -149,43 +129,30 @@ public class AddItemActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i) {
-                    case R.id.button_xs:
+                    case (R.id.button_xs):
                         size = b1.getText().toString();
                         break;
-                    case R.id.button_s:
+                    case (R.id.button_s):
                         size = b2.getText().toString();
                         break;
-                    case R.id.button_m:
+                    case (R.id.button_m):
                         size = b3.getText().toString();
                         break;
-                    case R.id.button_l:
+                    case (R.id.button_l):
                         size = b4.getText().toString();
                         break;
-                    case R.id.button_xl:
+                    case (R.id.button_xl):
                         size = b5.getText().toString();
                         break;
                 }
+                itemModel.setSize(size);
+
             }
         });
 
-
-        /*TODO AutoComplete Store Name*/
-        mStoreName = findViewById(R.id.autoCompleteBrand_store);
-        String[] storeArray = getResources().getStringArray(R.array.store_names);
-        ArrayAdapter<String> storeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, storeArray);
-        mStoreName.setAdapter(storeAdapter);
 
         /*Additional Information*/
         mAdditionalInformation = findViewById(R.id.additional_information);
-
-        /*Rating Bar*/
-        mRatingBar = findViewById(R.id.item_rating);
-        mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                rating = String.valueOf(mRatingBar.getRating());
-            }
-        });
 
 
         /*Save Button pressed*/
@@ -228,24 +195,25 @@ public class AddItemActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.imageButton:
+            case (R.id.clicked_image):
                 //open camera to take picture. Save image and get image reference
                 dispatchTakePictureIntent();
-                selectImage.setVisibility(View.GONE);
                 break;
 
 
             /*Progress Bar Show hide with translucent Scrollview*/
-            case R.id.save_button:
-                additionalInformation = mAdditionalInformation.getText().toString();
-                rating = String.valueOf(mRatingBar.getRating());
-                ItemModel model = new ItemModel();
-                model.setCategory(category);
-                upload = new FirebaseDataUpload(this, model, imageReference);
+            case (R.id.save_button):
+               if(mAdditionalInformation.getText().toString().isEmpty()){
+                  itemModel.setDescription("");
+               }else {
+                   itemModel.setDescription(mAdditionalInformation.getText().toString());
+               }
+                itemModel.setCategory(RealmHelper.getCategory(subCategoryModel.getCategoryId()).getCategory());
+                upload = new FirebaseDataUpload(this, itemModel, imageReference);
                 upload.show(getSupportFragmentManager(), "upload");
                 break;
 
-            case R.id.cancel_button:
+            case (R.id.cancel_button):
                 finish();
                 break;
 
@@ -299,7 +267,7 @@ public class AddItemActivity extends AppCompatActivity implements View.OnClickLi
             File file = new File(currentPhotoPath);
             imageReference = Uri.fromFile(file);
             Log.d(TAG, "onActivityResult: URi: " + imageReference);
-            backgroundImage.setImageURI(imageReference);
+            itemImage.setImageURI(imageReference);
 
         }
     }

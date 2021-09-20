@@ -42,26 +42,60 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout_subType_holder"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:orientation="horizontal"
+            android:layout_height="100dp"
+            android:orientation="vertical"
             android:layout_marginTop="2dp"
             android:layout_gravity="center_vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/textView_subTypes_constants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Type"
+                android:layout_marginBottom="4dp"/>
+
+            <Spinner
+                android:layout_marginTop="4dp"
+                android:id="@+id/spinner_subTypes"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+
+               />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
             android:padding="15dp"
             >
 
             <TextView
                 android:id="@+id/size"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:text="Size" />
+                android:text="Size"
+                android:layout_marginEnd="4dp"/>
 
             <RadioGroup
                 android:id="@+id/radio_group"
                 android:layout_width="0dp"
+                android:layout_marginStart="4dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="horizontal">
                 <RadioButton
                     android:id="@+id/button_xs"
