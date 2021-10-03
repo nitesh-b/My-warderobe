@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
@@ -43,7 +44,7 @@ public class SubCategoriesAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
          TextView subCategoryTitle;
-         CardView cardView;
+         LinearLayout cardView;
 
         if (convertView == null){
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout_categories, parent, false);

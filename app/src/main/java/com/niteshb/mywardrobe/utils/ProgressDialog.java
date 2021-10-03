@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 import com.niteshb.mywardrobe.R;
 
@@ -22,6 +23,7 @@ public class ProgressDialog extends Dialog {
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;
         getWindow().setAttributes(params);
+        getWindow().setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.background_edit_text));
         setTitle(null);
         setCancelable(false);
 
@@ -30,6 +32,7 @@ public class ProgressDialog extends Dialog {
         textViewTitle  = view.findViewById(R.id.textView_title);
         setContentView(view);
     }
+
 
     public void setMessage(String message){
         textViewMessage.setText(message);

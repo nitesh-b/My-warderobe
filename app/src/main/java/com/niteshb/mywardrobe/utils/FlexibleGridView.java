@@ -2,6 +2,7 @@ package com.niteshb.mywardrobe.utils;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.GridView;
 

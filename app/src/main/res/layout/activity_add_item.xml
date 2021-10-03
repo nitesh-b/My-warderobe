@@ -35,8 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:src="@drawable/add_img"
                 android:scaleType="center"
-                android:background="@drawable/border_item_other_description"
-                app:tint="@color/white" />
+                android:background="@drawable/border_item_other_description" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -72,6 +71,40 @@
             android:background="@color/colorPrimaryDark"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"/>
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout_color_holder"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="15dp">
+
+            <TextView
+                android:id="@+id/textView_color_constants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Color"
+                android:layout_marginBottom="4dp"/>
+
+            <Spinner
+                android:layout_marginTop="4dp"
+                android:id="@+id/spinner_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="Select Color"
+
+                />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"

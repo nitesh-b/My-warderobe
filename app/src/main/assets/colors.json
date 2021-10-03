@@ -1,0 +1,1106 @@
+[
+    {
+      "colorName": "Alice blue",
+      "hexCode": "#F0F8FF"
+    },
+    {
+      "colorName": "Antique white",
+      "hexCode": "#FAEBD7"
+    },
+    {
+      "colorName": "Aqua",
+      "hexCode": "#00FFFF"
+    },
+    {
+      "colorName": "Aquamarine",
+      "hexCode": "#7FFFD4"
+    },
+    {
+      "colorName": "Azure",
+      "hexCode": "#F0FFFF"
+    },
+    {
+      "colorName": "Beige",
+      "hexCode": "#F5F5DC"
+    },
+    {
+      "colorName": "Bisque",
+      "hexCode": "#FFE4C4"
+    },
+    {
+      "colorName": "Black",
+      "hexCode": "#000000"
+    },
+    {
+      "colorName": "Blanched almond",
+      "hexCode": "#FFEBCD"
+    },
+    {
+      "colorName": "Blue",
+      "hexCode": "#0000FF"
+    },
+    {
+      "colorName": "Blue violet",
+      "hexCode": "#8A2BE2"
+    },
+    {
+      "colorName": "Brown",
+      "hexCode": "#A52A2A"
+    },
+    {
+      "colorName": "Burlywood",
+      "hexCode": "#DEB887"
+    },
+    {
+      "colorName": "Cadet blue",
+      "hexCode": "#5F9EA0"
+    },
+    {
+      "colorName": "Chartreuse",
+      "hexCode": "#7FFF00"
+    },
+    {
+      "colorName": "Chocolate",
+      "hexCode": "#D2691E"
+    },
+    {
+      "colorName": "Coral",
+      "hexCode": "#FF7F50"
+    },
+    {
+      "colorName": "Cornflower blue",
+      "hexCode": "#6495ED"
+    },
+    {
+      "colorName": "Cornsilk",
+      "hexCode": "#FFF8DC"
+    },
+    {
+      "colorName": "Crimson",
+      "hexCode": "#DC143C"
+    },
+    {
+      "colorName": "Cyan",
+      "hexCode": "#00FFFF"
+    },
+    {
+      "colorName": "Dark blue",
+      "hexCode": "#00008B"
+    },
+    {
+      "colorName": "Dark cyan",
+      "hexCode": "#008B8B"
+    },
+    {
+      "colorName": "Dark goldenrod",
+      "hexCode": "#B8860B"
+    },
+    {
+      "colorName": "Dark gray",
+      "hexCode": "#A9A9A9"
+    },
+    {
+      "colorName": "Dark green",
+      "hexCode": "#006400"
+    },
+    {
+      "colorName": "Dark khaki",
+      "hexCode": "#BDB76B"
+    },
+    {
+      "colorName": "Dark magenta",
+      "hexCode": "#8B008B"
+    },
+    {
+      "colorName": "Dark olive green",
+      "hexCode": "#556B2F"
+    },
+    {
+      "colorName": "Dark orange",
+      "hexCode": "#FF8C00"
+    },
+    {
+      "colorName": "Dark orchid",
+      "hexCode": "#9932CC"
+    },
+    {
+      "colorName": "Dark red",
+      "hexCode": "#8B0000"
+    },
+    {
+      "colorName": "Dark salmon",
+      "hexCode": "#E9967A"
+    },
+    {
+      "colorName": "Dark seagreen",
+      "hexCode": "#8DBC8F"
+    },
+    {
+      "colorName": "Dark slate blue",
+      "hexCode": "#483D8B"
+    },
+    {
+      "colorName": "Light salmon",
+      "hexCode": "#FFA07A"
+    },
+    {
+      "colorName": "Light sea green",
+      "hexCode": "#20B2AA"
+    },
+    {
+      "colorName": "Light sky blue",
+      "hexCode": "#87CEFA"
+    },
+    {
+      "colorName": "Light slate gray",
+      "hexCode": "#778899"
+    },
+    {
+      "colorName": "Light steel blue",
+      "hexCode": "#B0C4DE"
+    },
+    {
+      "colorName": "Light yellow",
+      "hexCode": "#FFFFE0"
+    },
+    {
+      "colorName": "Lime",
+      "hexCode": "#00FF00"
+    },
+    {
+      "colorName": "Lime green",
+      "hexCode": "#32CD32"
+    },
+    {
+      "colorName": "Linen",
+      "hexCode": "#FAF0E6"
+    },
+    {
+      "colorName": "Magenta",
+      "hexCode": "#FF00FF"
+    },
+    {
+      "colorName": "Maroon",
+      "hexCode": "#800000"
+    },
+    {
+      "colorName": "Medium aquamarine",
+      "hexCode": "#66CDAA"
+    },
+    {
+      "colorName": "Medium blue",
+      "hexCode": "#0000CD"
+    },
+    {
+      "colorName": "Medium orchid",
+      "hexCode": "#BA55D3"
+    },
+    {
+      "colorName": "Medium purple",
+      "hexCode": "#9370DB"
+    },
+    {
+      "colorName": "Medium sea green",
+      "hexCode": "#3CB371"
+    },
+    {
+      "colorName": "Medium slate blue",
+      "hexCode": "#7B68EE"
+    },
+    {
+      "colorName": "Medium spring green",
+      "hexCode": "#00FA9A"
+    },
+    {
+      "colorName": "Medium turquoise",
+      "hexCode": "#48D1CC"
+    },
+    {
+      "colorName": "Medium violet red",
+      "hexCode": "#C71585"
+    },
+    {
+      "colorName": "Midnight blue",
+      "hexCode": "#191970"
+    },
+    {
+      "colorName": "Mint cream",
+      "hexCode": "#F5FFFA"
+    },
+    {
+      "colorName": "Misty rose",
+      "hexCode": "#FFE4E1"
+    },
+    {
+      "colorName": "Moccasin",
+      "hexCode": "#FFE4B5"
+    },
+    {
+      "colorName": "Navajo white",
+      "hexCode": "#FFDEAD"
+    },
+    {
+      "colorName": "Navy",
+      "hexCode": "#000080"
+    },
+    {
+      "colorName": "Old lace",
+      "hexCode": "#FDF5E6"
+    },
+    {
+      "colorName": "Olive drab",
+      "hexCode": "#6B8E23"
+    },
+    {
+      "colorName": "Orange",
+      "hexCode": "#FFA500"
+    },
+    {
+      "colorName": "Orange red",
+      "hexCode": "#FF4500"
+    },
+    {
+      "colorName": "Orchid",
+      "hexCode": "#DA70D6"
+    },
+    {
+      "colorName": "Pale goldenrod",
+      "hexCode": "#EEE8AA"
+    },
+    {
+      "colorName": "Pale green",
+      "hexCode": "#98FB98"
+    },
+    {
+      "colorName": "Pale turquoise",
+      "hexCode": "#AFEEEE"
+    },
+    {
+      "colorName": "Black",
+      "hexCode": "#000000"
+    },
+    {
+      "colorName": "Navy",
+      "hexCode": "#000080"
+    },
+    {
+      "colorName": "Dark blue",
+      "hexCode": "#00008B"
+    },
+    {
+      "colorName": "Medium blue",
+      "hexCode": "#0000CD"
+    },
+    {
+      "colorName": "Blue",
+      "hexCode": "#0000FF"
+    },
+    {
+      "colorName": "Dark green",
+      "hexCode": "#006400"
+    },
+    {
+      "colorName": "Green",
+      "hexCode": "#008000"
+    },
+    {
+      "colorName": "Teal",
+      "hexCode": "#008080"
+    },
+    {
+      "colorName": "Dark cyan",
+      "hexCode": "#008B8B"
+    },
+    {
+      "colorName": "Deep sky blue",
+      "hexCode": "#00BFFF"
+    },
+    {
+      "colorName": "Dark turquoise",
+      "hexCode": "#00DED1"
+    },
+    {
+      "colorName": "Medium spring green",
+      "hexCode": "#00FA9A"
+    },
+    {
+      "colorName": "Lime",
+      "hexCode": "#00FF00"
+    },
+    {
+      "colorName": "Spring green",
+      "hexCode": "#00FF7F"
+    },
+    {
+      "colorName": "Aqua",
+      "hexCode": "#00FFFF"
+    },
+    {
+      "colorName": "Cyan",
+      "hexCode": "#00FFFF"
+    },
+    {
+      "colorName": "Midnight blue",
+      "hexCode": "#191970"
+    },
+    {
+      "colorName": "Dodger blue",
+      "hexCode": "#1E90FF"
+    },
+    {
+      "colorName": "Light sea green",
+      "hexCode": "#20B2AA"
+    },
+    {
+      "colorName": "Forest green",
+      "hexCode": "#228B22"
+    },
+    {
+      "colorName": "Seagreen",
+      "hexCode": "#2E8B57"
+    },
+    {
+      "colorName": "Dark slate gray",
+      "hexCode": "#2F4F4F"
+    },
+    {
+      "colorName": "Lime green",
+      "hexCode": "#32CD32"
+    },
+    {
+      "colorName": "Medium sea green",
+      "hexCode": "#3CB371"
+    },
+    {
+      "colorName": "Turquoise",
+      "hexCode": "#40E0D0"
+    },
+    {
+      "colorName": "Royal blue",
+      "hexCode": "#4169E1"
+    },
+    {
+      "colorName": "Steel blue",
+      "hexCode": "#4682B4"
+    },
+    {
+      "colorName": "Dark slate blue",
+      "hexCode": "#483D8B"
+    },
+    {
+      "colorName": "Medium turquoise",
+      "hexCode": "#48D1CC"
+    },
+    {
+      "colorName": "Indigo",
+      "hexCode": "#4B0082"
+    },
+    {
+      "colorName": "Dark olive green",
+      "hexCode": "#556B2F"
+    },
+    {
+      "colorName": "Cadet blue",
+      "hexCode": "#5F9EA0"
+    },
+    {
+      "colorName": "Cornflower blue",
+      "hexCode": "#6495ED"
+    },
+    {
+      "colorName": "Medium aquamarine",
+      "hexCode": "#66CDAA"
+    },
+    {
+      "colorName": "Dim gray",
+      "hexCode": "#696969"
+    },
+    {
+      "colorName": "Dark khaki",
+      "hexCode": "#BDB76B"
+    },
+    {
+      "colorName": "Silver",
+      "hexCode": "#C0C0C0"
+    },
+    {
+      "colorName": "Medium violet red",
+      "hexCode": "#C71585"
+    },
+    {
+      "colorName": "Indian red",
+      "hexCode": "#CD5C5C"
+    },
+    {
+      "colorName": "Peru",
+      "hexCode": "#CD853F"
+    },
+    {
+      "colorName": "Chocolate",
+      "hexCode": "#D2691E"
+    },
+    {
+      "colorName": "Tan",
+      "hexCode": "#D2B48C"
+    },
+    {
+      "colorName": "Light grey",
+      "hexCode": "#D3D3D3"
+    },
+    {
+      "colorName": "Thistle",
+      "hexCode": "#D8BFD8"
+    },
+    {
+      "colorName": "Orchid",
+      "hexCode": "#DA70D6"
+    },
+    {
+      "colorName": "Goldenrod",
+      "hexCode": "#DAA520"
+    },
+    {
+      "colorName": "Pale violet red",
+      "hexCode": "#DB7093"
+    },
+    {
+      "colorName": "Crimson",
+      "hexCode": "#DC143C"
+    },
+    {
+      "colorName": "Gainsboro",
+      "hexCode": "#DCDCDC"
+    },
+    {
+      "colorName": "Plum",
+      "hexCode": "#DDA0DD"
+    },
+    {
+      "colorName": "Burlywood",
+      "hexCode": "#DEB887"
+    },
+    {
+      "colorName": "Light cyan",
+      "hexCode": "#E0FFFF"
+    },
+    {
+      "colorName": "Lavender",
+      "hexCode": "#E6E6FA"
+    },
+    {
+      "colorName": "Dark salmon",
+      "hexCode": "#E9967A"
+    },
+    {
+      "colorName": "Violet",
+      "hexCode": "#EE82EE"
+    },
+    {
+      "colorName": "Pale goldenrod",
+      "hexCode": "#EEE8AA"
+    },
+    {
+      "colorName": "Light coral",
+      "hexCode": "#F08080"
+    },
+    {
+      "colorName": "Khaki",
+      "hexCode": "#F0E68C"
+    },
+    {
+      "colorName": "Alice blue",
+      "hexCode": "#F0F8FF"
+    },
+    {
+      "colorName": "Honeydew",
+      "hexCode": "#F0FFF0"
+    },
+    {
+      "colorName": "Azure",
+      "hexCode": "#F0FFFF"
+    },
+    {
+      "colorName": "Sandy brown",
+      "hexCode": "#F4A460"
+    },
+    {
+      "colorName": "Wheat",
+      "hexCode": "#F5DEB3"
+    },
+    {
+      "colorName": "Beige",
+      "hexCode": "#F5F5DC"
+    },
+    {
+      "colorName": "Whitesmoke",
+      "hexCode": "#F5F5F5"
+    },
+    {
+      "colorName": "Mint cream",
+      "hexCode": "#F5FFFA"
+    },
+    {
+      "colorName": "Ghost white",
+      "hexCode": "#F8F8FF"
+    },
+    {
+      "colorName": "Salmon",
+      "hexCode": "#FA8072"
+    },
+    {
+      "colorName": "Antique white",
+      "hexCode": "#FAEBD7"
+    },
+    {
+      "colorName": "Dark slate gray",
+      "hexCode": "#2F4F4F"
+    },
+    {
+      "colorName": "Dark turquoise",
+      "hexCode": "#00DED1"
+    },
+    {
+      "colorName": "Dark violet",
+      "hexCode": "#9400D3"
+    },
+    {
+      "colorName": "Deep pink",
+      "hexCode": "#FF1493"
+    },
+    {
+      "colorName": "Deep sky blue",
+      "hexCode": "#00BFFF"
+    },
+    {
+      "colorName": "Dim gray",
+      "hexCode": "#696969"
+    },
+    {
+      "colorName": "Dodger blue",
+      "hexCode": "#1E90FF"
+    },
+    {
+      "colorName": "Firebrick",
+      "hexCode": "#B22222"
+    },
+    {
+      "colorName": "Floral white",
+      "hexCode": "#FFFAF0"
+    },
+    {
+      "colorName": "Forest green",
+      "hexCode": "#228B22"
+    },
+    {
+      "colorName": "Fuchsia",
+      "hexCode": "#FF00FF"
+    },
+    {
+      "colorName": "Gainsboro",
+      "hexCode": "#DCDCDC"
+    },
+    {
+      "colorName": "Ghost white",
+      "hexCode": "#F8F8FF"
+    },
+    {
+      "colorName": "Gold",
+      "hexCode": "#FFD700"
+    },
+    {
+      "colorName": "Goldenrod",
+      "hexCode": "#DAA520"
+    },
+    {
+      "colorName": "Gray",
+      "hexCode": "#808080"
+    },
+    {
+      "colorName": "Green",
+      "hexCode": "#008000"
+    },
+    {
+      "colorName": "Green yellow",
+      "hexCode": "#ADFF2F"
+    },
+    {
+      "colorName": "Honeydew",
+      "hexCode": "#F0FFF0"
+    },
+    {
+      "colorName": "Hot pink",
+      "hexCode": "#FF69B4"
+    },
+    {
+      "colorName": "Indian red",
+      "hexCode": "#CD5C5C"
+    },
+    {
+      "colorName": "Indigo",
+      "hexCode": "#4B0082"
+    },
+    {
+      "colorName": "Ivory",
+      "hexCode": "#FFFFF0"
+    },
+    {
+      "colorName": "Khaki",
+      "hexCode": "#F0E68C"
+    },
+    {
+      "colorName": "Lavender",
+      "hexCode": "#E6E6FA"
+    },
+    {
+      "colorName": "Lavender blush",
+      "hexCode": "#FFF0F5"
+    },
+    {
+      "colorName": "Lawn green",
+      "hexCode": "#7CFC00"
+    },
+    {
+      "colorName": "Lemon chiffon",
+      "hexCode": "#FFFACD"
+    },
+    {
+      "colorName": "Light blue",
+      "hexCode": "#ADD8E6"
+    },
+    {
+      "colorName": "Light coral",
+      "hexCode": "#F08080"
+    },
+    {
+      "colorName": "Light cyan",
+      "hexCode": "#E0FFFF"
+    },
+    {
+      "colorName": "Light goldenrod yellow",
+      "hexCode": "#FAFAD2"
+    },
+    {
+      "colorName": "Light green",
+      "hexCode": "#90EE90"
+    },
+    {
+      "colorName": "Light grey",
+      "hexCode": "#D3D3D3"
+    },
+    {
+      "colorName": "Light pink",
+      "hexCode": "#FFB6C1"
+    },
+    {
+      "colorName": "Pale violet red",
+      "hexCode": "#DB7093"
+    },
+    {
+      "colorName": "Papaya whip",
+      "hexCode": "#FFEFD5"
+    },
+    {
+      "colorName": "Peach puff",
+      "hexCode": "#FFDAB9"
+    },
+    {
+      "colorName": "Peru",
+      "hexCode": "#CD853F"
+    },
+    {
+      "colorName": "Pink",
+      "hexCode": "#FFC8CB"
+    },
+    {
+      "colorName": "Plum",
+      "hexCode": "#DDA0DD"
+    },
+    {
+      "colorName": "Powder blue",
+      "hexCode": "#B0E0E6"
+    },
+    {
+      "colorName": "Purple",
+      "hexCode": "#800080"
+    },
+    {
+      "colorName": "Red",
+      "hexCode": "#FF0000"
+    },
+    {
+      "colorName": "Rosy brown",
+      "hexCode": "#BC8F8F"
+    },
+    {
+      "colorName": "Royal blue",
+      "hexCode": "#4169E1"
+    },
+    {
+      "colorName": "Saddle brown",
+      "hexCode": "#8B4513"
+    },
+    {
+      "colorName": "Salmon",
+      "hexCode": "#FA8072"
+    },
+    {
+      "colorName": "Sandy brown",
+      "hexCode": "#F4A460"
+    },
+    {
+      "colorName": "Seagreen",
+      "hexCode": "#2E8B57"
+    },
+    {
+      "colorName": "Sea shell",
+      "hexCode": "#FFF5EE"
+    },
+    {
+      "colorName": "Sienna",
+      "hexCode": "#A0522D"
+    },
+    {
+      "colorName": "Silver",
+      "hexCode": "#C0C0C0"
+    },
+    {
+      "colorName": "Sky blue",
+      "hexCode": "#87CEEB"
+    },
+    {
+      "colorName": "Slate blue",
+      "hexCode": "#6A5ACD"
+    },
+    {
+      "colorName": "Snow",
+      "hexCode": "#FFFAFA"
+    },
+    {
+      "colorName": "Spring green",
+      "hexCode": "#00FF7F"
+    },
+    {
+      "colorName": "Steel blue",
+      "hexCode": "#4682B4"
+    },
+    {
+      "colorName": "Tan",
+      "hexCode": "#D2B48C"
+    },
+    {
+      "colorName": "Thistle",
+      "hexCode": "#D8BFD8"
+    },
+    {
+      "colorName": "Teal",
+      "hexCode": "#008080"
+    },
+    {
+      "colorName": "Tomato",
+      "hexCode": "#FF6347"
+    },
+    {
+      "colorName": "Turquoise",
+      "hexCode": "#40E0D0"
+    },
+    {
+      "colorName": "Violet",
+      "hexCode": "#EE82EE"
+    },
+    {
+      "colorName": "Wheat",
+      "hexCode": "#F5DEB3"
+    },
+    {
+      "colorName": "White",
+      "hexCode": "#FFFFFF"
+    },
+    {
+      "colorName": "Whitesmoke",
+      "hexCode": "#F5F5F5"
+    },
+    {
+      "colorName": "Yellow",
+      "hexCode": "#FFFF00"
+    },
+    {
+      "colorName": "Yellow green",
+      "hexCode": "#9ACD32"
+    },
+    {
+      "colorName": "Slate blue",
+      "hexCode": "#6A5ACD"
+    },
+    {
+      "colorName": "Olive drab",
+      "hexCode": "#6B8E23"
+    },
+    {
+      "colorName": "Light slate gray",
+      "hexCode": "#778899"
+    },
+    {
+      "colorName": "Medium slate blue",
+      "hexCode": "#7B68EE"
+    },
+    {
+      "colorName": "Lawn green",
+      "hexCode": "#7CFC00"
+    },
+    {
+      "colorName": "Chartreuse",
+      "hexCode": "#7FFF00"
+    },
+    {
+      "colorName": "Aquamarine",
+      "hexCode": "#7FFFD4"
+    },
+    {
+      "colorName": "Maroon",
+      "hexCode": "#800000"
+    },
+    {
+      "colorName": "Purple",
+      "hexCode": "#800080"
+    },
+    {
+      "colorName": "Gray",
+      "hexCode": "#808080"
+    },
+    {
+      "colorName": "Sky blue",
+      "hexCode": "#87CEEB"
+    },
+    {
+      "colorName": "Light sky blue",
+      "hexCode": "#87CEFA"
+    },
+    {
+      "colorName": "Blue violet",
+      "hexCode": "#8A2BE2"
+    },
+    {
+      "colorName": "Dark red",
+      "hexCode": "#8B0000"
+    },
+    {
+      "colorName": "Dark magenta",
+      "hexCode": "#8B008B"
+    },
+    {
+      "colorName": "Saddle brown",
+      "hexCode": "#8B4513"
+    },
+    {
+      "colorName": "Dark seagreen",
+      "hexCode": "#8DBC8F"
+    },
+    {
+      "colorName": "Light green",
+      "hexCode": "#90EE90"
+    },
+    {
+      "colorName": "Medium purple",
+      "hexCode": "#9370DB"
+    },
+    {
+      "colorName": "Dark violet",
+      "hexCode": "#9400D3"
+    },
+    {
+      "colorName": "Pale green",
+      "hexCode": "#98FB98"
+    },
+    {
+      "colorName": "Dark orchid",
+      "hexCode": "#9932CC"
+    },
+    {
+      "colorName": "Yellow green",
+      "hexCode": "#9ACD32"
+    },
+    {
+      "colorName": "Sienna",
+      "hexCode": "#A0522D"
+    },
+    {
+      "colorName": "Brown",
+      "hexCode": "#A52A2A"
+    },
+    {
+      "colorName": "Dark gray",
+      "hexCode": "#A9A9A9"
+    },
+    {
+      "colorName": "Light blue",
+      "hexCode": "#ADD8E6"
+    },
+    {
+      "colorName": "Green yellow",
+      "hexCode": "#ADFF2F"
+    },
+    {
+      "colorName": "Pale turquoise",
+      "hexCode": "#AFEEEE"
+    },
+    {
+      "colorName": "Light steel blue",
+      "hexCode": "#B0C4DE"
+    },
+    {
+      "colorName": "Powder blue",
+      "hexCode": "#B0E0E6"
+    },
+    {
+      "colorName": "Firebrick",
+      "hexCode": "#B22222"
+    },
+    {
+      "colorName": "Dark goldenrod",
+      "hexCode": "#B8860B"
+    },
+    {
+      "colorName": "Medium orchid",
+      "hexCode": "#BA55D3"
+    },
+    {
+      "colorName": "Rosy brown",
+      "hexCode": "#BC8F8F"
+    },
+    {
+      "colorName": "Linen",
+      "hexCode": "#FAF0E6"
+    },
+    {
+      "colorName": "Light goldenrod yellow",
+      "hexCode": "#FAFAD2"
+    },
+    {
+      "colorName": "Old lace",
+      "hexCode": "#FDF5E6"
+    },
+    {
+      "colorName": "Red",
+      "hexCode": "#FF0000"
+    },
+    {
+      "colorName": "Fuchsia",
+      "hexCode": "#FF00FF"
+    },
+    {
+      "colorName": "Magenta",
+      "hexCode": "#FF00FF"
+    },
+    {
+      "colorName": "Deep pink",
+      "hexCode": "#FF1493"
+    },
+    {
+      "colorName": "Orange red",
+      "hexCode": "#FF4500"
+    },
+    {
+      "colorName": "Tomato",
+      "hexCode": "#FF6347"
+    },
+    {
+      "colorName": "Hot pink",
+      "hexCode": "#FF69B4"
+    },
+    {
+      "colorName": "Coral",
+      "hexCode": "#FF7F50"
+    },
+    {
+      "colorName": "Dark orange",
+      "hexCode": "#FF8C00"
+    },
+    {
+      "colorName": "Light salmon",
+      "hexCode": "#FFA07A"
+    },
+    {
+      "colorName": "Orange",
+      "hexCode": "#FFA500"
+    },
+    {
+      "colorName": "Light pink",
+      "hexCode": "#FFB6C1"
+    },
+    {
+      "colorName": "Pink",
+      "hexCode": "#FFC8CB"
+    },
+    {
+      "colorName": "Gold",
+      "hexCode": "#FFD700"
+    },
+    {
+      "colorName": "Peach puff",
+      "hexCode": "#FFDAB9"
+    },
+    {
+      "colorName": "Navajo white",
+      "hexCode": "#FFDEAD"
+    },
+    {
+      "colorName": "Moccasin",
+      "hexCode": "#FFE4B5"
+    },
+    {
+      "colorName": "Bisque",
+      "hexCode": "#FFE4C4"
+    },
+    {
+      "colorName": "Misty rose",
+      "hexCode": "#FFE4E1"
+    },
+    {
+      "colorName": "Blanched almond",
+      "hexCode": "#FFEBCD"
+    },
+    {
+      "colorName": "Papaya whip",
+      "hexCode": "#FFEFD5"
+    },
+    {
+      "colorName": "Lavender blush",
+      "hexCode": "#FFF0F5"
+    },
+    {
+      "colorName": "Sea shell",
+      "hexCode": "#FFF5EE"
+    },
+    {
+      "colorName": "Cornsilk",
+      "hexCode": "#FFF8DC"
+    },
+    {
+      "colorName": "Lemon chiffon",
+      "hexCode": "#FFFACD"
+    },
+    {
+      "colorName": "Floral white",
+      "hexCode": "#FFFAF0"
+    },
+    {
+      "colorName": "Snow",
+      "hexCode": "#FFFAFA"
+    },
+    {
+      "colorName": "Yellow",
+      "hexCode": "#FFFF00"
+    },
+    {
+      "colorName": "Light yellow",
+      "hexCode": "#FFFFE0"
+    },
+    {
+      "colorName": "Ivory",
+      "hexCode": "#FFFFF0"
+    },
+    {
+      "colorName": "White",
+      "hexCode": "#FFFFFF"
+    }
+]

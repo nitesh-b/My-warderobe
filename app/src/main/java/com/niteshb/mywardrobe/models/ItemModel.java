@@ -17,6 +17,15 @@ public class ItemModel extends RealmObject implements Serializable {
     private boolean isDeleted, isFavourite, syncRequired;
     private long dateAdded, dateModified;
     private String size;
+    private String color;
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 
     public String getSize() {
         return size;

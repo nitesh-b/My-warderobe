@@ -64,6 +64,7 @@ public class BackgroundTask implements Runnable {
                 @Override
                 public void execute(Realm realm) {
                  //   ItemModel object = realm.where(ItemModel.class).equalTo("id", model.getId()).findFirst();
+                            model.setSyncRequired(false);
                             realm.insertOrUpdate(model);
                 }
             });

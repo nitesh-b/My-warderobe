@@ -7,13 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.niteshb.mywardrobe.R;
+import com.niteshb.mywardrobe.constants.Constants;
 import com.niteshb.mywardrobe.interfaces.ItemClickListener;
 import com.niteshb.mywardrobe.models.realmModels.CategoryModel;
 
@@ -48,7 +52,8 @@ public class CategoriesAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
          TextView categoryTitle;
-         CardView cardView;
+         LinearLayout cardView;
+        ImageView backgroundImage;
 
         if (convertView == null){
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout_categories, parent, false);
@@ -56,7 +61,8 @@ public class CategoriesAdapter extends BaseAdapter {
 
         categoryTitle = convertView.findViewById(R.id.textView_category_title);
         cardView = convertView.findViewById(R.id.cardView);
-
+        backgroundImage = convertView.findViewById(R.id.imageView);
+        backgroundImage.setImageDrawable(ContextCompat.getDrawable(parent.getContext(), Constants.getCategoryImage(dataList.get(position).getCategory())));
         categoryTitle.setText(dataList.get(position).getCategory());
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override

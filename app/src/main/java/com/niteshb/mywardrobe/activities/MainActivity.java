@@ -1,6 +1,8 @@
 package com.niteshb.mywardrobe.activities;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,11 +24,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.niteshb.mywardrobe.R;
 import com.niteshb.mywardrobe.adapters.CategoriesAdapter;
 import com.niteshb.mywardrobe.adapters.SectionPagerAdapter;
-import com.niteshb.mywardrobe.fragments.Bags;
-import com.niteshb.mywardrobe.fragments.Clothing;
-import com.niteshb.mywardrobe.fragments.Cosmetics;
-import com.niteshb.mywardrobe.fragments.Earrings;
-import com.niteshb.mywardrobe.fragments.Shoes;
 import com.niteshb.mywardrobe.interfaces.ItemClickListener;
 import com.niteshb.mywardrobe.models.realmModels.CategoryModel;
 import com.niteshb.mywardrobe.realmHelper.RealmHelper;
@@ -120,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_search:
-                Toast.makeText(this, "Menu Search", Toast.LENGTH_SHORT).show();
+                getFavouriteItems();
                 break;
             case R.id.menu_signout:
                 Toast.makeText(this, "Sign Out", Toast.LENGTH_SHORT).show();
@@ -129,39 +126,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
-    private void setupViewPager(ViewPager mViewPager) {
-        SectionPagerAdapter viewPagerAapter = new SectionPagerAdapter(getSupportFragmentManager());
-        viewPagerAapter.addFragment(new Clothing());
-        viewPagerAapter.addFragment(new Bags());
-        viewPagerAapter.addFragment(new Cosmetics());
-        viewPagerAapter.addFragment(new Earrings());
-        viewPagerAapter.addFragment(new Shoes());
-        mViewPager.setAdapter(viewPagerAapter);
+    private void getFavouriteItems() {
 
     }
+
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            /*case R.id.signout_button:
-                Toast.makeText(MainActivity.this, mAuth.getCurrentUser().getDisplayName(), Toast.LENGTH_SHORT).show();
-                mAuth.signOut();
-                finish();
-                startActivity(new Intent(MainActivity.this, Login.class));
-                break;*/
-//            case R.id.add_item_floating_button:
-//                startActivity(new Intent(MainActivity.this, AddItemActivity.class));
+//            case R.id.signout_button:
+//                Toast.makeText(MainActivity.this, mAuth.getCurrentUser().getDisplayName(), Toast.LENGTH_SHORT).show();
+//                mAuth.signOut();
+//                finish();
+//                startActivity(new Intent(MainActivity.this, Login.class));
 //                break;
+
         }
 
     }
 
     @Override
     public void onBackPressed() {
-       mAuth.signOut();
-        finish();
-        startActivity(new Intent(MainActivity.this, Login.class));
-        Toast.makeText(MainActivity.this, "Sign In to continue...", Toast.LENGTH_SHORT).show();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setTitle("Exit application")
+                .setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finishAffinity();
+                        finish();
+                    }
+                });
+
+
+
+        builder.show();
 
     }
 

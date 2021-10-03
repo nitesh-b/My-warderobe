@@ -58,9 +58,10 @@ dependencies {
 
     //Realm Adapter
 
-    implementation'io.realm:android-adapters:3.1.0'
-
-
+    implementation'io.realm:android-adapters:4.0.0'
+    implementation 'com.github.chrisbanes:PhotoView:2.0.0'
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

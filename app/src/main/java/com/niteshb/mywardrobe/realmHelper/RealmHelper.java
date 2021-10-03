@@ -1,14 +1,18 @@
 package com.niteshb.mywardrobe.realmHelper;
 
+import com.niteshb.mywardrobe.models.FilterModel;
 import com.niteshb.mywardrobe.models.ItemModel;
 import com.niteshb.mywardrobe.models.realmModels.CategoryModel;
 import com.niteshb.mywardrobe.models.realmModels.SubCategoryModel;
 
 import java.util.ArrayList;
 
+import io.realm.Case;
 import io.realm.Realm;
 import io.realm.RealmObject;
+import io.realm.RealmQuery;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
 public class RealmHelper {
 
@@ -93,15 +97,64 @@ public class RealmHelper {
     }
 
 
-    public  static RealmResults<ItemModel> getCategoryItem(String categoryId){
+    public  static RealmResults<ItemModel> getCategoryItem(String categoryId, boolean favourite){
         try(Realm realm = Realm.getDefaultInstance()){
-            return  realm.where(ItemModel.class).equalTo("categoryId", categoryId).findAll();
+            if(favourite){
+                return  realm.where(ItemModel.class).equalTo("categoryId", categoryId).and().equalTo("isFavourite", true).findAll();
+            }else{
+                return  realm.where(ItemModel.class).equalTo("categoryId", categoryId).findAll();
+            }
+
         }
     }
 
-    public static RealmResults<ItemModel> getSubCategoryItem(String subCategoryId) {
+    public static RealmResults<ItemModel> getSubCategoryItem(String subCategoryId, boolean favourite) {
         try(Realm realm = Realm.getDefaultInstance()){
-            return  realm.where(ItemModel.class).equalTo("subCategoryId", subCategoryId).findAll();
+            if(favourite){
+                return  realm.where(ItemModel.class).equalTo("subCategoryId", subCategoryId).and().equalTo("isFavourite", true).findAll();
+            }else{
+                return  realm.where(ItemModel.class).equalTo("subCategoryId", subCategoryId).findAll();
+
+            }
+                   }
+    }
+
+    public static ItemModel getItem(String itemId) {
+        try(Realm realm = Realm.getDefaultInstance()){
+            return  realm.where(ItemModel.class).equalTo("id", itemId).findFirst();
+        }
+    }
+
+    public static RealmResults<ItemModel> getFilteredItems(String categoryId, String subCategoryId, FilterModel filterModel) {
+        try(Realm realm = Realm.getDefaultInstance()){
+            RealmQuery<ItemModel> results =  realm.where(ItemModel.class);
+            if(subCategoryId == null){
+                results.equalTo("categoryId", categoryId);
+            }else{
+                results.equalTo("subCategoryId", subCategoryId);
+                if(filterModel.getSubType() != null && !filterModel.getSubType().isEmpty()){
+                    results.contains("subType", filterModel.getSubType(), Case.INSENSITIVE);
+                }
+            }
+
+            if(filterModel.getDisplayOrder() == 1){
+                results.sort("dateAdded", Sort.ASCENDING);
+            }else if (filterModel.getDisplayOrder() == 2){
+                results.sort("dateAdded", Sort.DESCENDING);
+            }
+
+            if(filterModel.getSize().size() > 0){
+                results.in("size", filterModel.getSize().toArray(new String[filterModel.getSize().size()]));
+            }
+
+            if(!(filterModel.getColor() != null && filterModel.getColor().isEmpty())){
+                results.contains("color", filterModel.getColor(), Case.INSENSITIVE);
+            }
+            if(!(filterModel.getKeyword() != null && filterModel.getKeyword().isEmpty())){
+                results.contains("description", filterModel.getKeyword(), Case.INSENSITIVE);
+            }
+
+        return  results.findAll();
         }
     }
 }

@@ -27,4 +27,15 @@
         <item name="fontFamily">@font/eastwood</item>
     </style>
 
+
+    <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!--buttons color-->
+        <item name="colorAccent">@color/colorPrimary</item>
+        <!--title and message color-->
+        <item name="android:textColorPrimary">@color/black</item>
+        <!--dialog background-->
+        <item name="android:windowBackground">@drawable/background_edit_text</item>
+    </style>
+
+
 </resources>
